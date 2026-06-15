@@ -1,368 +1,327 @@
-#home.obrigado {
-    padding-top: 5%;
-    padding-bottom: 15%;
+#obrigado {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    padding-block: 30%;
 }
 
-#home.obrigado img.logo {
-    display: inherit;
+#obrigado img.logo {
     width: 10rem;
+    margin-bottom: 2rem;
 }
 
-#home.obrigado h1 {
-    font-size: 4.5rem;
-    margin-bottom: 0;
+#obrigado .wrapper {
+    height: 100%;
 }
 
-#home.obrigado h1 span {
-    font-family: var(--ncs);
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 0;
+#obrigado img.bgsection {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
-#home.obrigado h2 {
-    color: #fff;
-    font-size: 1.8rem;
-  
-    font-family: var(--ncs);
-    text-transform: uppercase;
-    font-weight: 500;
-
-}
-
-#home.obrigado h3 {
-    color: #fff;
-    font-size: 1.8rem;
-    margin-top: 1rem;
-    font-weight: 300;
-}
-
-#home.obrigado .cards {
-    margin-top: 2rem;
+#obrigado .content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
 }
 
-#home.obrigado .card {
-    background: linear-gradient(45deg, #01040A, #070C11);
-    padding: 2rem;
+#obrigado header {
+    margin-bottom: 0;
+}
+
+#obrigado header h2 {
+    color: #fff;
+}
+
+#obrigado header h2 span {
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    color: #fff;
+    background: transparent;
+}
+
+#obrigado h1 {
+    color: #ffffff;
+    font-size: 4.5rem;
+  
+    margin-top: 1rem;
+    font-family: var(--ncs);
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+
+     background: linear-gradient(
+        120deg,
+        #014421 0%,
+        #008f3a 35%,
+        #f6d600 70%,
+        #ffbf00 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#obrigado.natal h1 {
+    background: linear-gradient(45deg, #DCA542, #E9C751, #DCA542, #E9C751);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#obrigado header p {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+
+    margin-bottom: 1rem;
+}
+
+#obrigado.natal header p {
+    color: #000;
+}
+
+#obrigado .text p {
+    font-size: 1.4rem;
+    color: #d0d0d0;
+    margin-top: .5rem;
+}
+
+#obrigado.natal .text p {
+    color: #000;
+}
+
+#obrigado .text p span {
+    font-weight: 600;
+}
+
+#obrigado .content .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-block: 4rem;
+}
+
+#obrigado .card {
+    background: linear-gradient(to right, #001120, #01050b);
+    position: relative;
     border-radius: 1rem;
 
-    position: relative;
-  border-radius: 1.2rem;
-
-  /* Base escura + layers */
-  background:
-    /* brilho suave azul no topo esquerdo */
-    radial-gradient(700px 320px at 12% 12%, rgba(0, 128, 201, 0.22) 0%, rgba(0, 128, 201, 0.08) 28%, transparent 62%),
-
-    /* brilho secundário no canto direito */
-    radial-gradient(620px 300px at 88% 20%, rgba(0, 128, 201, 0.14) 0%, rgba(0, 128, 201, 0.05) 35%, transparent 68%),
-
-    /* glow mais profundo embaixo */
-    radial-gradient(900px 380px at 50% 115%, rgba(0, 128, 201, 0.10) 0%, transparent 65%),
-
-    /* vinheta escura pra dar contraste no conteúdo */
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0) 55%),
-
-    /* gradiente base */
-    linear-gradient(135deg, #01040A 0%, #020813 38%, #04111D 65%, #01040A 100%);
-  
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.04),
-    inset 0 -1px 0 rgba(0, 128, 201, 0.08),
-    0 20px 60px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(0, 128, 201, 0.03);
+    height: 100%;
 }
 
-#home.obrigado .card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    /* linha horizontal glow */
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 128, 201, 0.12) 20%,
-      rgba(0, 128, 201, 0.04) 50%,
-      rgba(0, 128, 201, 0.12) 80%,
-      transparent 100%
-    );
-  opacity: 0.35;
-  mix-blend-mode: screen;
+#obrigado.natal .card {
+    background: linear-gradient(to right, #fcfcfc, #c7c7c7);
 }
 
-/* textura tech sutil (grid/diagonal) */
-#home.obrigado .card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.06;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px),
-    linear-gradient(135deg, rgba(0,128,201,0.35) 0%, transparent 35%, transparent 65%, rgba(0,128,201,0.20) 100%);
-  background-size:
-    28px 28px,
-    28px 28px,
-    100% 100%;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
+#obrigado .card.destaque {
+    background: linear-gradient(45deg, #010d15, #030215);
 }
 
-#home.obrigado .card h6 {
-    color: #ffffff;
-    border-radius: .5rem;
-    background: var(--gradient);
-    width: max-content;
-    padding: .2rem 4rem;
-
-    font-size: 1.8rem;
-
-    position: absolute;
-    left: 50%;
-    top: -5%;
-    transform: translate(-50%, 0);
-}
-
-#home.obrigado .card.dois,
-#home.obrigado .card.tres, 
-#home.obrigado .card.quatro {
-    padding-top: 3rem;
-}
-
-#home.obrigado .card h4 {
+#obrigado .card.destaque .text h3 {
     color: #fff;
-    font-size: 1.8rem;
+}
+
+#obrigado .card.destaque .text p {
+    color: #fff;
+}
+
+#obrigado .card img {
+    width: 100%;
+    aspect-ratio: 16/6;
+    object-position: 50% 30%;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, #000 60%, transparent);
+}
+
+#obrigado .card .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+#obrigado .card .text h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
   
     font-family: var(--ncs);
     text-transform: uppercase;
     font-weight: 500;
 
-    background: #ffffff17;
-    padding: 1rem;
-
-    position: relative;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.9rem 1.4rem;
-  border-radius: 0.4rem;
-  overflow: hidden;
-  isolation: isolate;
-
-  background:
-    /* glow azul vindo da esquerda */
-    radial-gradient(220px 80px at 12% 50%, rgba(0, 128, 201, 0.22) 0%, transparent 70%),
-
-    /* glow suave no centro */
-    radial-gradient(300px 120px at 50% 50%, rgba(0, 128, 201, 0.08) 0%, transparent 75%),
-
-    /* base escura translúcida */
-    linear-gradient(90deg, rgba(10, 18, 28, 0.88) 0%, rgba(20, 30, 42, 0.82) 50%, rgba(12, 20, 30, 0.88) 100%);
-
-  border: 1px solid rgba(255, 255, 255, 0.16);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.05),
-    inset 0 -1px 0 rgba(0,128,201,0.08),
-    0 10px 28px rgba(0,0,0,0.32);
-}
-
-#home.obrigado .card h4 span {
-    font-family: var(--ncs);
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#home.obrigado .card .text {
-    margin-top: 1rem;
-}
-
-#home.obrigado .card p {
-    font-size: 1.5rem;
-    text-align: left;
-    font-weight: 400;
-    color: #cdcdcd;
-
-    display: flex;
-    align-items: start;
-    gap: 1rem;
-
-    margin-top: 1rem;
-}
-
-#home.obrigado .card p ion-icon {
-    font-size: 1rem;
-    margin-top: .3rem;
-}
-
-#home.obrigado .card .box {
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-
-    background: #ffffff10;
-    border-radius: .5rem;
-    padding: 1rem;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-}
-
-#home.obrigado .card .box:hover {
-    background: #ffffff19;
-}
-
-#home.obrigado .card p.acesse {
-    margin-top: 2rem;
-    font-weight: 600;
     margin-bottom: .5rem;
-    font-size: 1.6rem;
 }
 
-#home.obrigado .card .box a {
-    font-size: 1.8rem;
-    color: #c8c8c8;
-    font-weight: 300;
+#obrigado.natal .card h3 {
+    color: #000;
 }
 
-#home.obrigado .card .box ion-icon {
-    color: #c8c8c8;
+#obrigado .card .text p {
+    font-size: 1.2rem;
+}
+
+#obrigado.natal .card p {
+    color: #000;
+}
+
+#obrigado .card .text button {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    padding-block: 1.4rem;
+    padding-inline: 2rem;
+}
+
+#obrigado .z7-btnx {
+    margin-top: 3rem;
+}
+
+#obrigado.natal .card .text button {
+    background: linear-gradient(45deg, #DCA542, #E9C751, #DCA542, #E9C751);
+    filter: none;
+}
+
+#obrigado header h2 {
     font-size: 2rem;
 }
 
-#home.obrigado .card.quatro {
+#obrigado.natal header h2 {
+    color: #000;
+}
+
+#obrigado header button {
+    margin-top: 2rem;
+}
+
+#obrigado header.dois {
+    margin-top: 3rem;
+}
+
+/* Overlay */
+.modalMerlin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* Quando ativo */
+.modalMerlin.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    overflow: hidden;
+    position: relative;
+  background: #fff;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
-#home.obrigado .card.quatro::before {
-  content: "";
+.modal-content img.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Animação de entrada */
+.modalMerlin.active .modal-content {
+  transform: translateY(0);
+}
+
+/* Botão fechar */
+.close {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  background:
-    linear-gradient(rgba(1, 4, 10, 0.74), rgba(1, 4, 10, 0.74)),
-    url("../assets/eua.avif") center/cover no-repeat;
-
-  opacity: 0.42;
-  z-index: 0;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
 }
-
-#home.obrigado .card.quatro::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 46, 95, 0.20) 0%,
-      rgba(255, 255, 255, 0.02) 45%,
-      rgba(160, 18, 18, 0.12) 100%
-    );
-
-  opacity: 0.95;
-  z-index: 0;
-}
-
-#home.obrigado .card.quatro h6,
-#home.obrigado .card.quatro h4,
-#home.obrigado .card.quatro .text {
-  position: relative;
-  z-index: 1;
+.close:hover {
+  color: #000;
 }
 
 @media (min-width: 1080px) {
-    header#home.obrigado {
-        height: 100vh;
-        max-height: 100vh;
-        min-height: 100vh;
+    section#obrigado {
+        padding-block: 10%;
     }
 
-    header#home.obrigado .content {
-      text-align: center;
-      align-items: center;
-  
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-  
-    header#home.obrigado .text {
-      margin-top: initial;
-      margin-bottom: initial;
-      width: 100%;
-
-      text-align: center;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  
-      position: relative;
-      z-index: 2;
-
+    section#obrigado .content h1 {
+      font-size: 7rem;
+      line-height: 1;
+      color: #f8fffd;
+      margin-bottom: 0;
     }
 
-    header#home.obrigado h1 {
-        font-size: 7rem;
+    section#obrigado .content h1 span {
+      font-size: 5rem;
+      min-width: 27rem;
     }
 
-    header#home.obrigado .cards {
+    section#obrigado .content header p {
+      font-weight: 500;
+      font-size: 2.5rem;
+    }
+
+    section#obrigado .content .cards {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-
-        margin-top: 8rem;
     }
 
-    header#home.obrigado .card {
-        height: 100%;
+    section#obrigado .card .text {
+        padding: 3rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 65%;
     }
 
-    header#home.obrigado .card.um p.acesse {
-        margin-top: 6rem;
+    section#obrigado .card.destaque .text {
+        height: 55%;
     }
-}
 
-  @media (min-width: 1080px) {
-    header#home.obrigado .wrapper {
-      width: min(140rem, 100%);
+    section#obrigado .card a {
+        width: 100%;
     }
-  }
 
-  @media (min-width: 1200px) {
-    header#home.obrigado .wrapper {
-      width: min(150rem, 100%);
+    section#obrigado .card button {
+        width: 100%;
     }
-  }
-
-  @media (min-width: 1600px) {
-    header#home.obrigado .wrapper {
-      width: min(160rem, 100%);
-    }
-  }
-
-  @media (min-width: 1700px) {
-    header#home.obrigado .wrapper {
-      width: min(170rem, 100%);
-    }
-  }
   
+}
