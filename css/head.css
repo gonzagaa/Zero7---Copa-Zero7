@@ -1,0 +1,55 @@
+header {
+    margin-bottom: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header h2 {
+    color: #011a00;
+    font-size: 2rem;
+  
+    font-family: var(--ncs);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+header h2 span {
+    font-family: var(--ncs);
+
+    background: linear-gradient(
+        120deg,
+        #014421 0%,
+        #008f3a 35%,
+        #f6d600 70%,
+        #ffbf00 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0.1rem 0.22rem rgba(0, 50, 20, 0.2);
+}
+
+header p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+
+header p span {
+    font-weight: 600;
+}
+
+@media (min-width: 1080px) {
+    header h2 {
+        font-size: 3rem;
+    }
+
+    header p {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,857 @@
+@import url("https://fonts.cdnfonts.com/css/ncs-radhiumz");
+@import url("https://fonts.cdnfonts.com/css/tt-fors-trial");
+
+@property --z7-senior-spin {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+#plano {
+    --br-green: #009c3b;
+  --br-green-dark: #014421;
+  --br-green-deep: #001f12;
+  --br-yellow: #ffdf00;
+  --br-yellow-soft: #ffe86a;
+  --z7-wine: #240708;
+  --z7-black: #070202;
+
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 156, 59, .16), transparent 34rem),
+    radial-gradient(circle at 88% 28%, rgba(255, 223, 0, .20), transparent 36rem),
+    radial-gradient(circle at 50% 100%, rgba(0, 156, 59, .12), transparent 42rem),
+    linear-gradient(180deg, #eeeeea 0%, #e3e3df 100%);
+    overflow: hidden;
+    position: relative;
+
+    background-image: url(../assets/bg\ verde\ copa\ mobile.png);
+}
+
+#plano::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(1, 68, 33, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1, 68, 33, .045) 1px, transparent 1px);
+  background-size: 4.8rem 4.8rem;
+  mask-image: radial-gradient(circle at center, #000 0%, transparent 72%);
+}
+
+#plano::after {
+  content: "";
+  position: absolute;
+  width: 55rem;
+  height: 55rem;
+  right: -22rem;
+  top: 18rem;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle, rgba(255, 223, 0, .28), transparent 62%);
+  filter: blur(1rem);
+  opacity: .8;
+}
+
+#plano header h2 {
+    font-size: 3.5rem;
+
+    line-height: 1;
+    
+    margin-bottom: 2rem;
+
+    color: #fff;
+}
+
+#plano header h2 span {
+   background:
+    linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 32%),
+    radial-gradient(150% 200% at var(--mx) var(--my),
+      rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 52%),
+    linear-gradient(135deg, #ffb300 0%, #ffcf1a 48%, #ffe14d 82%, #ffd000 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+}
+
+#plano header p {
+  color: #fff;
+}
+
+#plano header h2 span.um {
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 45%),
+    linear-gradient(
+      120deg,
+      #443601 0%,
+      #008f3a 35%,
+      #014421 70%,
+      #008f3a 100%
+    );
+
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+
+  font-family: var(--ncs);
+  font-weight: 700;
+  text-transform: uppercase;
+
+  text-shadow: 0 0.1rem 0.2rem rgba(5, 60, 0, 0.55);
+
+  border: 0.1rem solid rgba(160, 255, 160, 0.38);
+
+  box-shadow:
+    0 0.6rem 1.6rem rgba(2, 56, 0, 0.42),
+    0 0 0 0.2rem rgba(0, 81, 0, 0.18),
+    inset 0 0.1rem 0 rgba(255, 255, 255, .35);
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  line-height: 1;
+
+  padding-top: .3rem;
+}
+
+#plano header h2 span.um::after {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  z-index: -1;
+
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 44%,
+    rgba(210, 230, 255, .58) 50%,
+    rgba(255, 255, 255, 0) 56%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  transform: translateX(-60%);
+  animation: eyebrowSheen 4.5s ease-in-out infinite;
+}
+
+.card.card-senior-zero7,
+.card.card-senior-zero7 * {
+  box-sizing: border-box;
+}
+
+.card.card-senior-zero7 {
+  --font-title: "NCS Radhiumz", Impact, sans-serif;
+  --font-body: "TT Fors Trial", Arial, sans-serif;
+
+  --blue-dark: #023c83;
+  --blue: #0080c9;
+  --blue-light: #1da4f3;
+
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  margin-inline: auto;
+  padding: 3rem;
+
+  border-radius: 2.2rem;
+  border: 0.2rem solid rgba(255, 255, 255, 0.1);
+
+  background:
+    linear-gradient(#02060f, #0a121a) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.24),
+      rgba(29, 164, 243, 0.18),
+      rgba(255, 255, 255, 0.06)
+    ) border-box;
+
+  box-shadow:
+    0 2.4rem 8rem rgba(0, 0, 0, 0.42),
+    0 0 5rem rgba(2, 60, 131, 0.28),
+    inset 0 0.1rem 0 rgba(255, 255, 255, 0.06);
+    
+}
+
+.card.card-senior-zero7::before {
+  content: "";
+  position: absolute;
+  inset: 0.1rem;
+  z-index: -1;
+  border-radius: 2rem;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(29, 164, 243, 0.14), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 36%);
+}
+
+.card.card-senior-zero7 .title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(30rem, 78%);
+  padding: 1rem 2rem;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.13);
+  background: linear-gradient(to bottom, #01040a, #070c11);
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+.card.card-senior-zero7 .title::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 0.1rem;
+  background: linear-gradient(to right, transparent, #ffffff, transparent);
+}
+
+.card.card-senior-zero7 .title h3 {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 8vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card.card-senior-zero7 .topics {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.8rem;
+  width: 100%;
+
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  display: grid;
+        grid-template-columns: 1fr 1fr;
+}
+
+.card.card-senior-zero7 .topics p {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  margin: 0;
+  padding-top: 1.4rem;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body);
+  font-size: clamp(.9rem, 2.9vw, 1rem);
+  line-height: 1.35;
+  text-align: center;
+
+  display: flex;
+        flex-direction: column;
+}
+
+.card.card-senior-zero7 .topics p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.32) 70%,
+    rgba(255, 255, 255, 0.32)
+  );
+}
+
+.card.card-senior-zero7 .topics p:first-child::before {
+  display: none;
+}
+
+.card.card-senior-zero7 .topics p:nth-child(2)::before {
+  display: none;
+}
+
+.card.card-senior-zero7 .topics p > span:not(.check) {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.card.card-senior-zero7 .check {
+  display: inline-grid;
+  flex: 0 0 1.8rem;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+
+  border-radius: 999rem;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1;
+
+  background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+  box-shadow: 0 0 1.8rem rgba(29, 164, 243, 0.25);
+}
+
+.card.card-senior-zero7 .oldPrice {
+  margin: 0 0 1.2rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-family: var(--font-body);
+  font-size: 1.55rem;
+}
+
+.card.card-senior-zero7 .oldPrice h4 {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  font: inherit;
+  font-weight: 500;
+}
+
+.card.card-senior-zero7 .oldPrice span {
+  position: relative;
+  display: inline-block;
+}
+
+.card.card-senior-zero7 .oldPrice span::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  left: -0.4rem;
+  right: -0.4rem;
+  height: 0.2rem;
+  border-radius: 999rem;
+  background: rgba(246, 4, 4, 0.9);
+  transform: translateY(-50%) rotate(-2deg);
+}
+
+.card.card-senior-zero7 .price {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.card.card-senior-zero7 .price h4,
+.card.card-senior-zero7 .price h5 {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-title);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.card.card-senior-zero7 .price h4 {
+  font-size: clamp(3.4rem, 12vw, 5rem);
+}
+
+.card.card-senior-zero7 .price h5 {
+  font-size: clamp(2.1rem, 7vw, 3rem);
+}
+
+.card.card-senior-zero7 .price span {
+  font-family: var(--font-title);
+  background: linear-gradient(45deg, var(--blue-light), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card.card-senior-zero7 .price h4 span {
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.card.card-senior-zero7 .price h5 span {
+  font-size: clamp(1.55rem, 5vw, 2rem);
+}
+
+.card.card-senior-zero7 .z7-btnx {
+  --h: 6.8rem;
+  --in: 0.85rem;
+  --capw: 6.1rem;
+  --r: calc(var(--h) / 3);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--h);
+  margin-top: 3rem;
+  padding: 0 8.4rem 0 2.4rem;
+  overflow: hidden;
+  isolation: isolate;
+
+  border-radius: var(--r) 0 var(--r) 0;
+  border: 0.1rem solid rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.96);
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  box-shadow:
+    0 0 4.5rem rgba(2, 60, 131, 0.4),
+    0 0 4.6rem rgba(29, 165, 243, 0.26),
+    0 0 0 0.4rem rgba(29, 165, 243, 0.11);
+
+  transition:
+    filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card.card-senior-zero7 .z7-btnx::before {
+  content: "";
+  position: absolute;
+  inset: -2.4rem;
+  z-index: 0;
+
+  border-radius: calc(var(--r) + 2.4rem) 0 calc(var(--r) + 2.4rem) 0;
+
+  background:
+    radial-gradient(
+      130% 160% at 50% 50%,
+      rgba(29, 164, 243, 0.72) 0%,
+      rgba(29, 164, 243, 0.24) 34%,
+      rgba(2, 60, 131, 0.12) 58%,
+      rgba(0, 0, 0, 0) 74%
+    ),
+    radial-gradient(
+      140% 120% at 20% 30%,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0) 55%
+    );
+
+  filter: blur(2.8rem);
+  opacity: 0.92;
+}
+
+.card.card-senior-zero7 .z7-btnx::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  padding: 0.1rem;
+  pointer-events: none;
+
+  border-radius: var(--r) 0 var(--r) 0;
+
+  background: conic-gradient(
+    from var(--z7-senior-spin),
+    rgba(29, 164, 243, 0) 0deg,
+    rgba(29, 164, 243, 0.85) 60deg,
+    rgba(255, 255, 255, 0.34) 95deg,
+    rgba(2, 60, 131, 0.85) 170deg,
+    rgba(29, 164, 243, 0.62) 250deg,
+    rgba(29, 164, 243, 0) 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0.9;
+}
+
+.card.card-senior-zero7 .z7-btnx__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  border-radius: var(--r) 0 var(--r) 0;
+
+  background:
+    radial-gradient(
+      140% 180% at 50% 50%,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.07) 22%,
+      rgba(255, 255, 255, 0) 56%
+    ),
+    linear-gradient(
+      90deg,
+      #012b60 0%,
+      var(--blue-dark) 44%,
+      #0b5fbe 72%,
+      var(--blue-light) 100%
+    );
+
+  background-size: 130% 130%;
+  background-position: 0% 50%;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.card.card-senior-zero7 .z7-btnx__shine {
+  position: absolute;
+  inset: -35% -55%;
+  z-index: 2;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 44%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0) 56%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  transform: translateX(-60%);
+  opacity: 1;
+}
+
+.card.card-senior-zero7 .z7-btnx__label {
+  position: relative;
+  z-index: 6;
+
+  color: #ffffff;
+  font-family: var(--font-title);
+  font-size: clamp(1.35rem, 4vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.08rem;
+  white-space: nowrap;
+
+  text-shadow: 0 1.4rem 3.6rem rgba(0, 0, 0, 0.35);
+}
+
+.card.card-senior-zero7 .z7-btnx__cap {
+  --cr: calc((var(--h) - (var(--in) * 2)) / 2);
+
+  position: absolute;
+  top: var(--in);
+  right: var(--in);
+  z-index: 7;
+
+  display: grid;
+  place-items: center;
+
+  width: var(--capw);
+  height: calc(100% - (var(--in) * 2));
+
+  border-radius: var(--cr) 0 var(--cr) var(--cr);
+  border: 0.1rem solid rgba(255, 255, 255, 0.12);
+
+  background:
+    radial-gradient(
+      120% 120% at 30% 30%,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.08) 40%,
+      rgba(255, 255, 255, 0) 72%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 42%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    linear-gradient(135deg, rgba(29, 164, 243, 0.36), rgba(2, 60, 131, 0.1));
+
+  box-shadow:
+    inset 0 0.1rem 0 rgba(255, 255, 255, 0.16),
+    0 1.2rem 2.6rem rgba(0, 0, 0, 0.2);
+}
+
+.card.card-senior-zero7 .z7-btnx__arrow {
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card.card-senior-zero7 .z7-btnx:hover {
+  filter: saturate(1.22) contrast(1.08);
+  box-shadow:
+    0 0 7.5rem rgba(2, 60, 131, 0.6),
+    0 0 4.6rem rgba(29, 164, 243, 0.44),
+    0 0 0 0.4rem rgba(29, 164, 243, 0.18);
+}
+
+.card.card-senior-zero7 .z7-btnx:hover .z7-btnx__arrow {
+  transform: translateX(0.35rem);
+}
+
+.card.card-senior-zero7 .z7-btnx:hover .z7-btnx__shine {
+  animation: z7-senior-shine-hover 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.card.card-senior-zero7 .z7-btnx:focus-visible {
+  outline: none;
+  box-shadow:
+    0 2.8rem 7.5rem rgba(2, 60, 131, 0.6),
+    0 1.8rem 4.6rem rgba(29, 164, 243, 0.44),
+    0 0 0 0.5rem rgba(29, 164, 243, 0.26);
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .card.card-senior-zero7 .z7-btnx {
+    animation:
+      z7-senior-ring 2.2s linear infinite,
+      z7-senior-breathe 3.8s ease-in-out infinite;
+  }
+
+  .card.card-senior-zero7 .z7-btnx__bg {
+    animation: z7-senior-gradient 7.5s ease-in-out infinite;
+  }
+
+  .card.card-senior-zero7 .z7-btnx__shine {
+    animation: z7-senior-shine-loop 3.2s ease-in-out infinite;
+  }
+}
+
+@keyframes z7-senior-ring {
+  to {
+    --z7-senior-spin: 360deg;
+  }
+}
+
+@keyframes z7-senior-breathe {
+  0%,
+  100% {
+    filter: saturate(1) contrast(1);
+  }
+
+  50% {
+    filter: saturate(1.14) contrast(1.08);
+  }
+}
+
+@keyframes z7-senior-gradient {
+  0% {
+    background-position: 0% 50%;
+    filter: saturate(1.08) contrast(1.04);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    filter: saturate(1.16) contrast(1.1);
+  }
+
+  100% {
+    background-position: 0% 50%;
+    filter: saturate(1.08) contrast(1.04);
+  }
+}
+
+@keyframes z7-senior-shine-loop {
+  0% {
+    transform: translateX(-75%);
+    opacity: 0.12;
+  }
+
+  40% {
+    opacity: 0.3;
+  }
+
+  60% {
+    opacity: 0.18;
+  }
+
+  100% {
+    transform: translateX(75%);
+    opacity: 0.1;
+  }
+}
+
+@keyframes z7-senior-shine-hover {
+  to {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .card.card-senior-zero7 {
+    padding-inline: 1.45rem;
+  }
+
+  .card.card-senior-zero7 .z7-btnx {
+    --h: 6.4rem;
+    --capw: 5.4rem;
+    padding-left: 1.35rem;
+    padding-right: 7.2rem;
+  }
+
+  .card.card-senior-zero7 .z7-btnx__label span {
+    display: none;
+  }
+
+  #plano header h2 span.um {
+    display: inline-block;
+  }
+}
+
+/* ===========================================================
+   COPA ZERO7 — card SÊNIOR com cara de Copa (premium, sem carnaval)
+   =========================================================== */
+
+/* moldura tricolor (verde -> amarelo -> azul) no lugar da borda branca */
+.card.card-senior-zero7{
+  border-width: 0.25rem;
+  background:
+    linear-gradient(#02060f, #0a121a) padding-box,
+    linear-gradient(135deg,
+      rgba(0,166,81,.85) 0%,
+      rgba(255,208,0,.85) 50%,
+      rgba(29,164,243,.92) 100%) border-box;
+  box-shadow:
+    0 2.4rem 8rem rgba(0,0,0,.45),
+    0 0 5rem rgba(2,60,131,.24),
+    0 0 6rem rgba(0,140,60,.16),
+    inset 0 0.1rem 0 rgba(255,255,255,.06);
+}
+
+/* bandeira fantasma dissolvida atrás do conteudo (brasão, nao adesivo) */
+.card.card-senior-zero7::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%2070%27%3E%3Crect%20width%3D%27100%27%20height%3D%2770%27%20fill%3D%27%23009c3b%27%2F%3E%3Cpolygon%20points%3D%2750%2C5%2095%2C35%2050%2C65%205%2C35%27%20fill%3D%27%23ffdf00%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2735%27%20r%3D%2714%27%20fill%3D%27%23002776%27%2F%3E%3Cpath%20d%3D%27M37%2032%20Q50%2026%2063%2033%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  background-repeat:no-repeat;
+  background-position: center 40%;
+  background-size: 80% auto;
+  opacity: .10;
+  mix-blend-mode: soft-light;
+  -webkit-mask: radial-gradient(72% 60% at 50% 42%, #000 0%, transparent 74%);
+          mask: radial-gradient(72% 60% at 50% 42%, #000 0%, transparent 74%);
+  pointer-events:none;
+}
+
+/* fio tricolor no chip SÊNIOR (substitui o branco) */
+.card.card-senior-zero7 .title::before{
+  background: linear-gradient(to right,
+    transparent, #00a651 25%, #ffd000 50%, #1da4f3 75%, transparent);
+}
+
+/* checks verdes (Brasil + "aprovado") */
+.card.card-senior-zero7 .check{
+  background: linear-gradient(135deg, #00d35a, #008a34);
+  box-shadow: 0 0 1.8rem rgba(0,190,85,.30);
+}
+
+/* ---- bandeira no cap do botão, seta entra no hover ---- */
+.card.card-senior-zero7 .z7-btnx__cap{ overflow: hidden; }
+
+.card.card-senior-zero7 .z7-btnx__flag{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  border-radius: inherit;
+  opacity:1;
+  transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
+}
+.card.card-senior-zero7 .z7-btnx__flag svg{
+  width:100%; height:100%; display:block;
+}
+/* gloss de vidro por cima da bandeira pra casar com o cap */
+.card.card-senior-zero7 .z7-btnx__flag::after{
+  content:"";
+  position:absolute; inset:0; border-radius:inherit; z-index:2;
+  background:
+    radial-gradient(120% 120% at 32% 24%, rgba(255,255,255,.34) 0%, rgba(255,255,255,.10) 38%, rgba(255,255,255,0) 70%),
+    linear-gradient(180deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 40%);
+  pointer-events:none;
+}
+
+.card.card-senior-zero7 .z7-btnx__arrow{
+  position:relative;
+  z-index:3;
+  opacity:0;
+  transform: translateX(-.35rem);
+  transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+.card.card-senior-zero7 .z7-btnx:hover .z7-btnx__flag{
+  opacity:0;
+  transform: scale(1.08);
+}
+.card.card-senior-zero7 .z7-btnx:hover .z7-btnx__arrow{
+  opacity:1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .card.card-senior-zero7 .z7-btnx__flag,
+  .card.card-senior-zero7 .z7-btnx__arrow{ transition: none; }
+}
+
+#plano header.desktop {
+    display: none;
+}
+
+#plano header.mobile p {
+  margin-top: 2rem;
+}
+
+
+@media (min-width: 1080px) {
+  section#plano {
+    padding-block: 12rem;
+    background-image: url(../assets/bg\ verde\ copa\ desktop.png);
+    background-size: cover;
+
+    margin-inline: 3%;
+    border-radius: 10rem;
+  }
+    section#plano header.desktop {
+        display: initial;
+        margin-bottom: 0;
+    }
+
+    section#plano header.mobile {
+        display: none;
+    }
+
+    section#plano .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 8rem;
+    }
+
+    section#plano header h2 {
+        font-size: 6rem;
+        text-align: left;
+        line-height: 1.2;
+    }
+    section#plano header p {
+        text-align: left;
+        font-size: 1.8rem;
+    }
+
+    section#plano .card.card-senior-zero7 .topics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section#plano .card.card-senior-zero7 p {
+        display: flex;
+        flex-direction: column;
+        font-size: clamp(1.1rem, 3.3vw, 1.3rem);
+    }
+}

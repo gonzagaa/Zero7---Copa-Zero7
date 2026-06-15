@@ -1,0 +1,690 @@
+:root{
+  --z7-deep:#023c83;
+  --z7-sky:#1da4f3;
+
+  /* variante verde (usada em CTAs em promoção, ex: PLENO Recovery) */
+  --z7-green-dark:#046b3a;
+  --z7-green:#00c86f;
+  --z7-green-light:#3cff9b;
+  --z7-green-neon:#73ffb8;
+}
+
+/* anima vars */
+@property --mx   { syntax: "<percentage>"; inherits: false; initial-value: 50%; }
+@property --my   { syntax: "<percentage>"; inherits: false; initial-value: 50%; }
+@property --spin { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+.z7-btnx{
+  /* FORMATO (igual ao print) */
+  --h: 7rem;                 /* altura */
+  --in: 0.9rem;                /* “moldura” interna do cap */
+  --capw: 6.3rem;              /* largura do cap */
+  --r: calc(var(--h) / 2);     /* raio do botão (meia altura) */
+
+  --sh1x: 0rem;
+  --sh1y: 0rem;
+  --sh2x: 0rem;
+  --sh2y: 0rem;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  height: var(--h);
+
+  /* padding MAIOR (mais “parrudo”) */
+  padding-left: 3.6rem;
+  padding-right: calc(var(--capw) + (var(--in) * 2) + 1.0rem);
+
+  /* TL arredondado, TR reto, BR arredondado, BL reto */
+  border-radius: var(--r) 0 var(--r) 0;
+
+  text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  font-family: var(--ncs);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,.96);
+
+  border: 0.1rem solid rgba(255,255,255,.10);
+  overflow: hidden;
+  isolation: isolate;
+
+  will-change: transform, filter, box-shadow;
+  transition:
+    filter .55s cubic-bezier(.16,1,.3,1),
+    box-shadow .60s cubic-bezier(.16,1,.3,1);
+
+  box-shadow:
+    0 0rem 4.5rem rgba(2, 60, 131, 0.395),
+    0 0rem 4.6rem rgba(29, 165, 243, 0.257),
+    0 0 0 .4rem rgba(29, 165, 243, 0.113);
+}
+
+/* glow externo */
+.z7-btnx::before{
+  content:"";
+  position:absolute;
+  inset:-2.4rem;
+
+  /* segue o mesmo recorte do botão */
+  border-radius: calc(var(--r) + 2.4rem) 0 calc(var(--r) + 2.4rem) 0;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(130% 160% at var(--mx) var(--my),
+      rgba(29,164,243,.72) 0%,
+      rgba(29,164,243,.24) 34%,
+      rgba(2,60,131,.12) 58%,
+      rgba(0,0,0,0) 74%),
+    radial-gradient(140% 120% at 20% 30%,
+      rgba(255,255,255,.16) 0%,
+      rgba(255,255,255,0) 55%);
+
+  filter: blur(2.8rem);
+  opacity: .92;
+  transition: opacity .60s cubic-bezier(.16,1,.3,1);
+}
+
+/* ring premium seguindo o formato */
+.z7-btnx::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  border-radius: var(--r) 0 var(--r) 0;
+
+  padding: .1rem;
+  z-index: 5;
+  pointer-events:none;
+
+  background:
+    conic-gradient(from var(--spin),
+      rgba(29,164,243,0) 0deg,
+      rgba(29,164,243,.85) 60deg,
+      rgba(255,255,255,.34) 95deg,
+      rgba(2,60,131,.85) 170deg,
+      rgba(29,164,243,.62) 250deg,
+      rgba(29,164,243,0) 360deg);
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  opacity: .90;
+}
+
+/* fundo base */
+.z7-btnx__bg{
+  position:absolute;
+  inset:0;
+
+  border-radius: var(--r) 0 var(--r) 0;
+
+  z-index: 1;
+
+  /* camada 1: highlight que “respira” */
+  background:
+    radial-gradient(140% 180% at var(--mx) var(--my),
+      rgba(255,255,255,.20) 0%,
+      rgba(255,255,255,.07) 22%,
+      rgba(255,255,255,0) 56%),
+
+    /* camada 2: gradiente principal (vai se mover) */
+    linear-gradient(90deg,
+      #012b60 0%,
+      var(--z7-deep) 44%,
+      #0b5fbe 72%,
+      var(--z7-sky) 100%);
+
+  background-size: 130% 130%;
+  background-position: 0% 50%;
+  filter: saturate(1.10) contrast(1.05);
+}
+
+/* shine que passa (agora em loop também) */
+.z7-btnx__shine{
+  position:absolute;
+  inset:-35% -55%;
+  z-index: 2;
+  pointer-events:none;
+
+  background: linear-gradient(115deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 44%,
+    rgba(255,255,255,.18) 50%,
+    rgba(255,255,255,0) 56%,
+    rgba(255,255,255,0) 100%);
+
+  transform: translateX(-60%);
+  opacity: 1; /* visível antes do hover, mas elegante */
+}
+
+.z7-btnx__label{
+  position: relative;
+  z-index: 6;
+  line-height: 1;
+  text-shadow: 0 1.4rem 3.6rem rgba(0,0,0,.35);
+}
+
+/* CAP do ícone */
+.z7-btnx__cap{
+  position:absolute;
+  top: var(--in);
+  right: var(--in);
+  height: calc(100% - (var(--in) * 2));
+  width: var(--capw);
+
+  /* raio do cap: metade da altura do cap */
+  --cr: calc((var(--h) - (var(--in) * 2)) / 2);
+
+  /* esquerda arredondada, topo direito reto, baixo direito arredondado, baixo esquerdo arredondado */
+  border-radius: var(--cr) 0 var(--cr) var(--cr);
+
+  display:grid;
+  place-items:center;
+  z-index: 7;
+
+  background:
+    radial-gradient(120% 120% at 30% 30%,
+      rgba(255,255,255,.20) 0%,
+      rgba(255,255,255,.08) 40%,
+      rgba(255,255,255,0) 72%),
+    linear-gradient(90deg,
+      rgba(255,255,255,.08) 0%,
+      rgba(255,255,255,.04) 42%,
+      rgba(255,255,255,.02) 100%),
+    linear-gradient(135deg,
+      rgba(29,164,243,.36),
+      rgba(2,60,131,.10));
+
+  border: 0.1rem solid rgba(255,255,255,.12);
+  box-shadow:
+    inset 0 .1rem 0 rgba(255,255,255,.16),
+    0 1.2rem 2.6rem rgba(0,0,0,.20);
+}
+
+.z7-btnx__arrow{
+  font-size: 2.2rem;
+  line-height: 1;
+  transform: translateX(0);
+  transition: transform .60s cubic-bezier(.16,1,.3,1);
+}
+
+/* hover */
+.z7-btnx:hover{
+  filter: saturate(1.22) contrast(1.08);
+
+  /* sombra “segue o cursor” */
+  box-shadow:
+    var(--sh1x, 0rem) var(--sh1y, 0rem) 7.5rem rgba(2,60,131,.60),
+    var(--sh2x, 0rem) var(--sh2y, 0rem) 4.6rem rgba(29,164,243,.44),
+    0 0 0 .4rem rgba(29,164,243,.18);
+}
+
+.z7-btnx:hover::before{ opacity: 1; }
+.z7-btnx:hover .z7-btnx__arrow{ transform: translateX(.35rem); }
+.z7-btnx:hover::before{ opacity: 1; }
+.z7-btnx:hover .z7-btnx__arrow{ transform: translateX(.35rem); }
+
+/* no hover, o shine fica mais forte e faz um passe “especial” */
+.z7-btnx:hover .z7-btnx__shine{
+  opacity: .95;
+  animation: z7x-shineHover .95s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+@keyframes z7x-shineHover{
+  to{ transform: translateX(60%); opacity: 0; }
+}
+
+/* ripple */
+.z7-btnx .z7x-ripple{
+  position:absolute;
+  z-index: 8;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999rem;
+  pointer-events:none;
+
+  background: radial-gradient(circle,
+    rgba(255,255,255,.55) 0%,
+    rgba(29,164,243,.35) 35%,
+    rgba(29,164,243,0) 70%);
+
+  transform: translate(-50%,-50%) scale(0);
+  opacity: .95;
+  animation: z7x-ripple .82s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes z7x-ripple{
+  to{ transform: translate(-50%,-50%) scale(28); opacity: 0; }
+}
+
+/* foco */
+.z7-btnx:focus-visible{
+  outline:none;
+  box-shadow:
+    0 2.8rem 7.5rem rgba(2,60,131,.60),
+    0 1.8rem 4.6rem rgba(29,164,243,.44),
+    0 0 0 .5rem rgba(29,164,243,.26);
+}
+
+/* ===========================
+   ANIMAÇÕES “IDLE” (antes do hover)
+   =========================== */
+@media (prefers-reduced-motion: no-preference){
+  /* ring rodando */
+  .z7-btnx{ animation: z7x-ring 2.2s linear infinite, z7x-breathe 3.8s ease-in-out infinite; }
+
+  /* gradiente se movimentando */
+  .z7-btnx__bg{ animation: z7x-gradient 7.5s ease-in-out infinite; }
+
+  /* raio de luz passando em loop */
+  .z7-btnx__shine{ animation: z7x-shineLoop 3.2s ease-in-out infinite; }
+
+  /* glow pulsando sutil */
+  .z7-btnx::before{ animation: z7x-glow 3.8s ease-in-out infinite; }
+}
+
+@keyframes z7x-ring{ to { --spin: 360deg; } }
+
+/* dá “vida” sem ficar carnaval */
+@keyframes z7x-breathe{
+  0%,100%{ filter: saturate(1.00) contrast(1.00); }
+  50%    { filter: saturate(1.14) contrast(1.08); }
+}
+
+/* movimento do gradiente pra aumentar contraste */
+@keyframes z7x-gradient{
+  0%   { background-position: 0% 50%; filter: saturate(1.08) contrast(1.04); }
+  50%  { background-position: 100% 50%; filter: saturate(1.16) contrast(1.10); }
+  100% { background-position: 0% 50%; filter: saturate(1.08) contrast(1.04); }
+}
+
+/* loop do sheen (raio de luz) */
+@keyframes z7x-shineLoop{
+  0%   { transform: translateX(-75%); opacity: .12; }
+  40%  { opacity: .30; }
+  60%  { opacity: .18; }
+  100% { transform: translateX(75%); opacity: .10; }
+}
+
+/* pulso do glow */
+@keyframes z7x-glow{
+  0%,100%{ opacity: .86; }
+  50%    { opacity: 1.00; }
+}
+
+/* ===========================
+   MODIFIER .copa -> TEMA COPA ZERO7 (Brasil)
+   Verde bandeira + ouro de troféu, com respiro do azul Zero7.
+   Sobrescreve só as cores. A engine de animação fica igual.
+   =========================== */
+:root{
+  --copa-deep:#02371d;        /* verde profundo */
+  --copa-green-dark:#046b32;
+  --copa-green:#00a04a;       /* verde bandeira */
+  --copa-green-light:#2fe089;
+  --copa-gold:#ffcf1a;        /* ouro troféu */
+  --copa-gold-light:#ffe88a;
+}
+
+.z7-btnx.copa{
+  border-color: rgba(255,232,138,.16);
+  box-shadow:
+    0 0 4.5rem rgba(0, 160, 74, .42),
+    0 0 4.6rem rgba(255, 207, 26, .22),
+    0 0 0 .4rem rgba(0, 160, 74, .14);
+}
+.z7-btnx.copa::before{
+  background:
+    radial-gradient(130% 160% at var(--mx) var(--my),
+      rgba(47,224,137,.66) 0%, rgba(0,160,74,.26) 34%, rgba(255,207,26,.14) 58%, rgba(0,0,0,0) 74%),
+    radial-gradient(140% 120% at 20% 30%, rgba(255,232,138,.18) 0%, rgba(255,255,255,0) 55%);
+}
+.z7-btnx.copa::after{
+  background:
+    conic-gradient(from var(--spin),
+      rgba(0,160,74,0) 0deg,
+      rgba(47,224,137,.85) 55deg,
+      rgba(255,232,138,.58) 95deg,
+      rgba(255,207,26,.88) 150deg,
+      rgba(0,160,74,.70) 240deg,
+      rgba(0,160,74,0) 360deg);
+}
+.z7-btnx.copa .z7-btnx__bg{
+  background:
+    radial-gradient(140% 180% at var(--mx) var(--my),
+      rgba(255,255,255,.18) 0%, rgba(255,245,200,.06) 22%, rgba(255,255,255,0) 56%),
+    linear-gradient(90deg,
+      #02401f 0%, var(--copa-deep) 38%, var(--copa-green-dark) 70%, var(--copa-green) 100%);
+  background-size: 130% 130%; background-position: 0% 50%;
+  filter: saturate(1.12) contrast(1.05);
+}
+.z7-btnx.copa .z7-btnx__shine{
+  background: linear-gradient(115deg,
+    rgba(255,232,138,0) 0%, rgba(255,232,138,0) 44%, rgba(255,232,138,.30) 50%,
+    rgba(255,232,138,0) 56%, rgba(255,232,138,0) 100%);
+}
+.z7-btnx.copa .z7-btnx__cap{
+  background:
+    radial-gradient(120% 120% at 30% 30%, rgba(255,245,200,.26) 0%, rgba(255,232,138,.10) 40%, rgba(255,255,255,0) 72%),
+    linear-gradient(90deg, rgba(255,245,200,.10) 0%, rgba(255,232,138,.05) 42%, rgba(255,255,255,.02) 100%),
+    linear-gradient(135deg, rgba(255,207,26,.42), rgba(0,128,58,.16));
+  border-color: rgba(255,232,138,.22);
+  box-shadow: inset 0 .1rem 0 rgba(255,245,200,.22), 0 1.2rem 2.6rem rgba(0,0,0,.22);
+}
+.z7-btnx.copa:hover{
+  filter: saturate(1.24) contrast(1.08);
+  box-shadow:
+    var(--sh1x,0rem) var(--sh1y,0rem) 7.5rem rgba(0,160,74,.58),
+    var(--sh2x,0rem) var(--sh2y,0rem) 4.6rem rgba(255,207,26,.42),
+    0 0 0 .4rem rgba(255,207,26,.20);
+}
+.z7-btnx.copa .z7x-ripple{
+  background: radial-gradient(circle, rgba(255,245,200,.60) 0%, rgba(255,207,26,.35) 35%, rgba(0,160,74,0) 70%);
+}
+.z7-btnx.copa:focus-visible{
+  box-shadow: 0 2.8rem 7.5rem rgba(0,160,74,.58), 0 1.8rem 4.6rem rgba(255,207,26,.42), 0 0 0 .5rem rgba(255,207,26,.28);
+}
+
+/* ===========================================================
+   MODIFIER .copa-bright -> COPA ZERO7 sobre fundo CLARO/amarelo
+   Sombra projetada quente + verde vívido + acabamento branco +
+   keyline verde-escura. Reaproveita a engine .z7-btnx inteira.
+   =========================================================== */
+.z7-btnx.copa-bright{
+  border-color: rgba(255,255,255,.16);
+  box-shadow:
+    0 1.6rem 3.2rem rgba(70,32,0,.40),
+    0 .7rem 1.4rem rgba(50,22,0,.34),
+    0 .15rem .4rem rgba(40,18,0,.30),
+    0 0 0 .18rem rgba(3,52,24,.62);
+}
+
+/* sombra de contato escura ancorada embaixo (no lugar da aura) */
+.z7-btnx.copa-bright::before{
+  inset:-.6rem -.6rem -2.2rem -.6rem;
+  border-radius: calc(var(--r) + .6rem) 0 calc(var(--r) + .6rem) 0;
+  background: radial-gradient(120% 130% at 50% 86%,
+    rgba(45,20,0,.55) 0%, rgba(45,20,0,.28) 40%, rgba(0,0,0,0) 72%);
+  filter: blur(1.8rem);
+  opacity:.9;
+}
+
+/* ring branco + verde (sem ouro) */
+.z7-btnx.copa-bright::after{
+  background: conic-gradient(from var(--spin),
+    rgba(3,80,38,.55) 0deg,
+    rgba(255,255,255,.92) 60deg,
+    rgba(120,255,180,.70) 110deg,
+    rgba(3,80,38,.55) 190deg,
+    rgba(255,255,255,.55) 280deg,
+    rgba(3,80,38,.55) 360deg);
+  opacity:.95;
+}
+
+/* verde vívido + gloss branco no topo */
+.z7-btnx.copa-bright .z7-btnx__bg{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 30%),
+    radial-gradient(150% 200% at var(--mx) var(--my),
+      rgba(180,255,210,.28) 0%, rgba(255,255,255,0) 50%),
+    linear-gradient(135deg, #044d27 0%, #0a8f46 48%, #16b85e 80%, #25cf6e 100%);
+  background-size: auto, 130% 130%, 130% 130%;
+  background-position: 0 0, 0% 50%, 0% 50%;
+  filter: saturate(1.22) contrast(1.06);
+}
+
+/* shine branco mais marcado */
+.z7-btnx.copa-bright .z7-btnx__shine{
+  background: linear-gradient(115deg,
+    rgba(255,255,255,0) 0%, rgba(255,255,255,0) 44%,
+    rgba(255,255,255,.42) 50%,
+    rgba(255,255,255,0) 56%, rgba(255,255,255,0) 100%);
+}
+
+/* cap branco/esmeralda, borda nítida */
+.z7-btnx.copa-bright .z7-btnx__cap{
+  background:
+    radial-gradient(120% 120% at 30% 28%,
+      rgba(255,255,255,.55) 0%, rgba(255,255,255,.18) 42%, rgba(255,255,255,0) 74%),
+    linear-gradient(135deg, rgba(255,255,255,.30), rgba(8,120,58,.22));
+  border:.12rem solid rgba(255,255,255,.34);
+  box-shadow:
+    inset 0 .12rem 0 rgba(255,255,255,.5),
+    inset 0 -.1rem .4rem rgba(3,52,24,.4),
+    0 .8rem 1.8rem rgba(40,18,0,.28);
+}
+
+/* label com sombra dura embaixo pra cravar no verde */
+.z7-btnx.copa-bright .z7-btnx__label{
+  text-shadow: 0 .12rem 0 rgba(3,52,24,.45), 0 .8rem 1.8rem rgba(3,40,18,.40);
+}
+
+/* hover: sombra reage sem perder o pé no chão */
+.z7-btnx.copa-bright:hover{
+  filter: saturate(1.28) contrast(1.08);
+  box-shadow:
+    var(--sh1x,0) calc(1.6rem + var(--sh1y,0rem)) 4.2rem rgba(70,32,0,.46),
+    var(--sh2x,0) calc(.7rem + var(--sh2y,0rem)) 1.8rem rgba(50,22,0,.40),
+    0 0 0 .18rem rgba(3,52,24,.7);
+}
+
+.z7-btnx.copa-bright .z7x-ripple{
+  background: radial-gradient(circle,
+    rgba(255,255,255,.8) 0%, rgba(180,255,210,.45) 35%, rgba(0,160,74,0) 70%);
+}
+
+.z7-btnx.copa-bright:focus-visible{
+  outline:none;
+  box-shadow:
+    0 1.6rem 3.2rem rgba(70,32,0,.40),
+    0 0 0 .3rem rgba(255,255,255,.85),
+    0 0 0 .55rem rgba(3,52,24,.7);
+}
+
+/* ===========================================================
+   MODIFIER .copa-blue -> COPA ZERO7 azul marinho (fundo claro)
+   Azul = complementar do amarelo (pop maximo) + DNA Zero7.
+   Sombra projetada quente + keyline navy + cap de vidro azul.
+   =========================================================== */
+/* cap recorta a bandeira */
+.z7-btnx.copa-blue .z7-btnx__cap{ overflow: hidden; }
+
+/* bandeira preenche o chip no repouso */
+.z7-btnx.copa-blue .z7-btnx__flag{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  opacity: 1;
+  transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
+}
+.z7-btnx.copa-blue .z7-btnx__flag svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* gloss de vidro por cima da bandeira pra casar com o cap azul */
+.z7-btnx.copa-blue .z7-btnx__flag::after{
+  content:"";
+  position:absolute; inset:0; border-radius:inherit; z-index:2;
+  background:
+    radial-gradient(120% 120% at 32% 24%, rgba(255,255,255,.38) 0%, rgba(255,255,255,.10) 38%, rgba(255,255,255,0) 70%),
+    linear-gradient(180deg, rgba(255,255,255,.20) 0%, rgba(255,255,255,0) 40%);
+  pointer-events:none;
+}
+
+/* seta escondida, sobreposta */
+.z7-btnx.copa-blue .z7-btnx__arrow{
+  position: relative;
+  z-index: 3;
+  color: rgba(255,255,255,.98);
+  opacity: 0;
+  transform: translateX(-.35rem);
+  transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+/* hover: bandeira sai, seta entra */
+.z7-btnx.copa-blue:hover .z7-btnx__flag{
+  opacity: 0;
+  transform: scale(1.08);
+}
+.z7-btnx.copa-blue:hover .z7-btnx__arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .z7-btnx.copa-blue .z7-btnx__flag,
+  .z7-btnx.copa-blue .z7-btnx__arrow{ transition: none; }
+}
+
+/* ===========================================================
+   MODIFIER .copa-yellow -> botão AMARELO sobre fundo VERDE escuro
+   Amarelo vibrante + keyline verde-escura + cap verde de vidro.
+   Reaproveita a engine .z7-btnx inteira.
+   =========================================================== */
+.z7-btnx.copa-yellow{
+  border-color: rgba(60,40,0,.22);
+  color: #1a2e00; /* texto escuro: branco no amarelo é ilegível */
+  box-shadow:
+    0 1.6rem 3.2rem rgba(0,30,8,.45),
+    0 .7rem 1.4rem rgba(0,22,6,.38),
+    0 .15rem .4rem rgba(0,16,4,.32),
+    0 0 0 .18rem rgba(3,40,12,.72);
+}
+/* sombra de contato escura ancorada embaixo (não aura) */
+.z7-btnx.copa-yellow::before{
+  inset:-.6rem -.6rem -2.2rem -.6rem;
+  border-radius: calc(var(--r) + .6rem) 0 calc(var(--r) + .6rem) 0;
+  background: radial-gradient(120% 130% at 50% 86%,
+    rgba(0,24,6,.6) 0%, rgba(0,24,6,.3) 40%, rgba(0,0,0,0) 72%);
+  filter: blur(1.8rem);
+  opacity:.9;
+}
+/* ring: branco + verde-escuro pra recortar do amarelo */
+.z7-btnx.copa-yellow::after{
+  background: conic-gradient(from var(--spin),
+    rgba(3,40,12,.6) 0deg,
+    rgba(255,255,255,.85) 58deg,
+    rgba(120,90,0,.5) 110deg,
+    rgba(3,40,12,.6) 190deg,
+    rgba(255,255,255,.5) 285deg,
+    rgba(3,40,12,.6) 360deg);
+  opacity:.9;
+}
+/* amarelo vibrante -> ouro, com gloss branco no topo */
+.z7-btnx.copa-yellow .z7-btnx__bg{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 32%),
+    radial-gradient(150% 200% at var(--mx) var(--my),
+      rgba(255,255,255,.30) 0%, rgba(255,255,255,0) 52%),
+    linear-gradient(135deg, #ffb300 0%, #ffcf1a 48%, #ffe14d 82%, #ffd000 100%);
+  background-size: auto, 130% 130%, 130% 130%;
+  background-position: 0 0, 0% 50%, 0% 50%;
+  filter: saturate(1.14) contrast(1.05);
+}
+/* shine branco */
+.z7-btnx.copa-yellow .z7-btnx__shine{
+  background: linear-gradient(115deg,
+    rgba(255,255,255,0) 0%, rgba(255,255,255,0) 44%,
+    rgba(255,255,255,.55) 50%,
+    rgba(255,255,255,0) 56%, rgba(255,255,255,0) 100%);
+}
+/* CAP de vidro VERDE-ESCURO (contraste no amarelo), seta clara */
+.z7-btnx.copa-yellow .z7-btnx__cap{
+  background:
+    radial-gradient(120% 120% at 32% 26%,
+      rgba(190,255,205,.4) 0%, rgba(255,255,255,.12) 40%, rgba(255,255,255,0) 72%),
+    linear-gradient(135deg, rgba(6,90,40,.92), rgba(2,46,18,.95));
+  border:.12rem solid rgba(180,255,205,.30);
+  box-shadow:
+    inset 0 .12rem 0 rgba(200,255,215,.35),
+    inset 0 -.2rem .5rem rgba(0,20,8,.5),
+    0 .8rem 1.8rem rgba(0,24,8,.35);
+}
+.z7-btnx.copa-yellow .z7-btnx__arrow{ color: rgba(235,255,240,.98); }
+/* label escuro com leve brilho claro embaixo pra cravar no amarelo */
+.z7-btnx.copa-yellow .z7-btnx__label{
+  color:#15280a;
+  text-shadow: 0 .1rem 0 rgba(255,255,255,.35);
+}
+.z7-btnx.copa-yellow:hover{
+  filter: saturate(1.2) contrast(1.07);
+  box-shadow:
+    var(--sh1x,0) calc(1.6rem + var(--sh1y,0rem)) 4.2rem rgba(0,30,8,.5),
+    var(--sh2x,0) calc(.7rem + var(--sh2y,0rem)) 1.8rem rgba(0,22,6,.44),
+    0 0 0 .18rem rgba(3,40,12,.82);
+}
+.z7-btnx.copa-yellow .z7x-ripple{
+  background: radial-gradient(circle,
+    rgba(0,40,14,.5) 0%, rgba(6,90,40,.3) 35%, rgba(0,80,30,0) 70%);
+}
+.z7-btnx.copa-yellow:focus-visible{
+  outline:none;
+  box-shadow:
+    0 1.6rem 3.2rem rgba(0,30,8,.45),
+    0 0 0 .3rem rgba(3,40,12,.85),
+    0 0 0 .55rem rgba(255,255,255,.6);
+}
+
+/* cap recorta a bandeira */
+.z7-btnx.copa-yellow .z7-btnx__cap{ overflow: hidden; }
+
+/* bandeira preenche o chip no estado parado */
+.z7-btnx.copa-yellow .z7-btnx__flag{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  opacity: 1;
+  transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
+}
+.z7-btnx.copa-yellow .z7-btnx__flag svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* gloss de vidro por cima da bandeira pra casar com o botão */
+.z7-btnx.copa-yellow .z7-btnx__flag::after{
+  content:"";
+  position:absolute; inset:0; border-radius:inherit; z-index:2;
+  background:
+    radial-gradient(120% 120% at 32% 24%, rgba(255,255,255,.40) 0%, rgba(255,255,255,.10) 38%, rgba(255,255,255,0) 70%),
+    linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 40%);
+  pointer-events:none;
+}
+
+/* seta começa escondida, sobreposta */
+.z7-btnx.copa-yellow .z7-btnx__arrow{
+  position: relative;
+  z-index: 3;
+  color: rgba(255,255,255,.98);
+  opacity: 0;
+  transform: translateX(-.35rem);
+  transition: opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+/* no hover: bandeira sai, seta entra */
+.z7-btnx.copa-yellow:hover .z7-btnx__flag{
+  opacity: 0;
+  transform: scale(1.08);
+}
+.z7-btnx.copa-yellow:hover .z7-btnx__arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .z7-btnx.copa-yellow .z7-btnx__flag,
+  .z7-btnx.copa-yellow .z7-btnx__arrow{ transition: none; }
+}

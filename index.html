@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa Zero7 🇧🇷</title>
+    <link rel="shortcut icon" href="./assets/Icon Copa z7.png" type="image/x-icon">
+
+    <link href="https://fonts.cdnfonts.com/css/ncs-radhiumz" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/tt-fors-trial" rel="stylesheet">     
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/lenis@1.1.14/dist/lenis.css"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/index.css?sgerg35wqdqwd2qwd">
+
+    <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/bfe861c8-ab4c-47c1-9b5d-67742fbce12f-loader.js" ></script>
+
+
+     <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KCJQPMC');</script>
+    <!-- End Google Tag Manager -->
+
+      <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/bfe861c8-ab4c-47c1-9b5d-67742fbce12f-loader.js" ></script>
+</head>
+<body id="body" class="smooth-scroll-wrapper">
+  
+<!-- <div id="top-offer-timer" class="top-offer-timer">
+  <div class="top-offer-timer__inner">
+    <p class="top-offer-timer__text">
+      <strong>Essa oferta se encerra em:</strong>
+    </p>
+
+    <div class="top-offer-timer__countdown" id="countdown">
+      <span class="time-group"><span id="days">10</span>d</span>
+      <span class="time-group"><span id="hours">08</span>h</span>
+      <span class="time-group"><span id="minutes">20</span>m</span>
+      <span class="time-group"><span id="seconds">30</span>s</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .top-offer-timer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .top-offer-timer__inner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    min-height: 4.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: .9rem 0;
+    text-align: center;
+  }
+
+  .top-offer-timer__text {
+    margin: 0;
+    color: #0b1623;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .top-offer-timer__text strong {
+    font-weight: 800;
+  }
+
+  .top-offer-timer__countdown {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #023c83;
+
+    background: linear-gradient(to right, #023c83, #0080c9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .top-offer-timer__countdown .time-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  body {
+    padding-top: 6.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .top-offer-timer__inner {
+      min-height: auto;
+      flex-direction: column;
+      gap: .5rem;
+      padding: .8rem 0;
+    }
+
+    .top-offer-timer__text {
+      font-size: 1.3rem;
+      white-space: normal;
+    }
+
+    .top-offer-timer__countdown {
+      font-size: 1.5rem;
+      gap: .7rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    body {
+      padding-top: 7.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-offer-timer__countdown {
+      font-size: 1.35rem;
+      gap: .6rem;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const offerYear = 2026;
+    const offerMonth = 3; // Abril = 3 (Janeiro = 0)
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function format(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+
+      const isOfferMonth =
+        now.getFullYear() === offerYear &&
+        now.getMonth() === offerMonth;
+
+      if (!isOfferMonth) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        return;
+      }
+
+      const endOfToday = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        23, 59, 59, 999
+      ).getTime();
+
+      const distance = endOfToday - now.getTime();
+
+      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = "00";
+      hoursEl.textContent = format(hours);
+      minutesEl.textContent = format(minutes);
+      secondsEl.textContent = format(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script> -->
+
+    <header class="header black" id="home"> 
+      <div class="wrapper">
+        <div class="content">
+            <div class="vsl"
+                       role="button"
+                       tabindex="0"
+                       data-video-id="PiBLAxAGZvU"
+                       aria-label="Assistir vídeo de apresentação">
+                    <img class="vsl__thumb"
+                         src="https://i.ytimg.com/vi/PiBLAxAGZvU/maxresdefault.jpg"
+                         onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/PiBLAxAGZvU/hqdefault.jpg'"
+                         alt=""
+                         loading="eager">
+
+                    <span class="vsl__shade" aria-hidden="true"></span>
+
+                    <span class="vsl__play" aria-hidden="true">
+                      <span class="vsl__play-ring"></span>
+                      <span class="vsl__play-ring vsl__play-ring--delay"></span>
+                      <svg class="vsl__play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </span>
+                  </div>
+            <div class="text">
+                  <h3>Plano Sênior com 77% de desconto</h3>
+                  <h1>Copa Zero7 + Plano sênior com <span class="hero__hl-green">77% OFF</span></h1>
+                  <p>Opere 80 contratos e se profissionalize no ambiente completo por um preço imperdível. E mostre que você é um craque: balance a rede do mercado e garanta R$ 10.000 no bolso.</p>
+
+                  <a class="z7-btnx copa-yellow" href="#plan" role="button" aria-label="Garantir minha vaga">
+                    <span class="z7-btnx__bg" aria-hidden="true"></span>
+                    <span class="z7-btnx__shine" aria-hidden="true"></span>
+                    <span class="z7-btnx__label">Reservar meu plano</span>
+                    <span class="z7-btnx__cap" aria-hidden="true">
+  <span class="z7-btnx__flag">
+    <svg viewBox="0 0 40 28" preserveAspectRatio="xMidYMid slice">
+      <rect width="40" height="28" fill="#009c3b"/>
+      <polygon points="20,3 37,14 20,25 3,14" fill="#ffdf00"/>
+      <circle cx="20" cy="14" r="6.2" fill="#002776"/>
+      <path d="M14.3 12.3 Q20 9.8 25.7 13.1" stroke="#ffffff" stroke-width="1.1" fill="none"/>
+    </svg>
+  </span>
+  <span class="z7-btnx__arrow">→</span>
+</span>
+                  </a>
+            </div>              
+          </div>
+      </div>      
+      <div class="image">
+        <img class="desktop" src="./assets/bg verde copa desktop.png" alt="">
+        <img class="mobile" src="./assets/bg verde copa mobile.png" alt="">
+      </div>
+
+      <div class="custom-shape-divider-bottom-1781303880">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" class="shape-fill"></path>
+    </svg>
+</div>
+    </header>
+
+    <section id="como">
+      <div class="wrapper">
+        <div class="content">
+          <header>
+            <h2>Como será a <span>Copa Zero7 ?</span></h2>
+            <p>A Copa Zero7 é uma campanha que oferta o plano sênior da Zero7 com um valor especial, e como bônus, os que adquirirem esse plano, participam da copa Zero7, que irá premiar as 3 melhores performances.</p>
+            <h6>A competição acontecerá dos dias 06 a 10 de julho de 2026. </h6>
+          </header>
+
+          <div class="cards">
+                    <div data-aos="fade-right" class="card">
+                        <div class="number">
+                            <h4>1° Lugar</h4>
+                        </div>
+
+                        <div class="text">
+                            <!-- <h5>1° Lugar</h5> -->
+                            <h3>10 mil em dinheiro + plano 50k Zero7 internacional.</h3>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-left" class="card">
+                        <div class="number">
+                            <h4>2° Lugar</h4>
+                        </div>
+
+                        <div class="text">
+                            <!-- <h5>2° Lugar</h5> -->
+                            <h3>5 mil em dinheiro + plano 25k Zero7 internacional</h3>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-right" class="card">
+                        <div class="number">
+                            <h4>3° Lugar</h4>
+                        </div>
+
+                        <div class="text">
+                            <!-- <h5>3° Lugar</h5> -->
+                            <h3>2,5 mil em dinheiro + plano 25k Zero7 internacional.</h3>
+                        </div>
+                    </div>
+          </div>
+
+           <a class="z7-btnx copa-blue" href="#plan" role="button" aria-label="Garantir minha vaga">
+                    <span class="z7-btnx__bg" aria-hidden="true"></span>
+                    <span class="z7-btnx__shine" aria-hidden="true"></span>
+                    <span class="z7-btnx__label">QUERO A OFERTA ESPECIAL</span>
+                    <span class="z7-btnx__cap" aria-hidden="true">
+  <span class="z7-btnx__flag">
+    <svg viewBox="0 0 40 28" preserveAspectRatio="xMidYMid slice">
+      <rect width="40" height="28" fill="#009c3b"/>
+      <polygon points="20,3 37,14 20,25 3,14" fill="#ffdf00"/>
+      <circle cx="20" cy="14" r="6.2" fill="#002776"/>
+      <path d="M14.3 12.3 Q20 9.8 25.7 13.1" stroke="#ffffff" stroke-width="1.1" fill="none"/>
+    </svg>
+  </span>
+  <span class="z7-btnx__arrow">→</span>
+</span>
+                  </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="plano">
+      <div class="wrapper">
+        <div class="content">
+          <header class="mobile">
+            <h2><span>77% OFF +</span> vaga para a copa Zero7</h2>
+          </header>
+
+          <header class="desktop">
+            <h2><span>77% OFF +</span> vaga para a copa Zero7</h2>
+            <p>Performance de elite exige as melhores oportunidades. A Zero7 foi criada para traders que buscam a profissionalização; com o Plano Sênior, além de garantir um ecossistema completo, você terá limites robustos de 80 contratos para operar com alavancagem e segurança, elevando seu patamar operacional. Para quem possui espírito competitivo, o plano também assegura sua participação na Copa Zero7, um torneio exclusivo onde sua habilidade pode te levar ao topo do pódio. Mostre seu talento, vença os desafios e crave seu prêmio de R$10.000,00</p>
+          </header>
+
+          <div class="card card-senior-zero7" data-plan="senior">
+            <div class="title">
+              <h3>SÊNIOR</h3>
+            </div>
+
+            <div class="topics">
+              <p><span class="check">✓</span> Limite por operação: <span>80 contratos</span></p>
+              <p><span class="check">✓</span> Limite para WIN: <span>50 contratos</span></p>
+              <p><span class="check">✓</span> Limite para WDO: <span>30 contratos</span></p>
+              <p><span class="check">✓</span> Limite de perda diária: <span>R$ 2.497,00</span></p>
+              <p><span class="check">✓</span> Limite de perda máxima: <span>R$ 9.997,00</span></p>
+              <p><span class="check">✓</span> Meta de aprovação: <span>R$ 9.997,00</span></p>
+              <p><span class="check">✓</span> Máximo de dias: <span>60</span></p>
+              <p><span class="check">✓</span> Repasse: <span>100% em conta real</span></p>
+            </div>
+
+            <div class="oldPrice">
+              <h4>de <span>R$ 2.767,00</span> por</h4>
+            </div>
+
+            <div class="price">
+              <h4><span>12x</span> R$83,01</h4>
+              <h5><span>ou</span> R$830,10 <span>à vista</span></h5>
+            </div>
+
+            <a
+              target="_blank"
+              href="https://app.zero7.com.br/checkout/a3703e"
+              class="z7-btnx"
+              role="button"
+              aria-label="Contratar plano Sênior"
+            >
+              <span class="z7-btnx__bg" aria-hidden="true"></span>
+              <span class="z7-btnx__shine" aria-hidden="true"></span>
+
+              <span class="z7-btnx__label">CONTRATAR PLANO</span>
+
+              <span class="z7-btnx__cap" aria-hidden="true">
+  <span class="z7-btnx__flag">
+    <svg viewBox="0 0 100 70" preserveAspectRatio="xMidYMid slice">
+      <rect width="100" height="70" fill="#009c3b"/>
+      <polygon points="50,5 95,35 50,65 5,35" fill="#ffdf00"/>
+      <circle cx="50" cy="35" r="14" fill="#002776"/>
+      <path d="M37 32 Q50 26 63 33" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+  </span>
+  <span class="z7-btnx__arrow">→</span>
+</span>
+            </a>
+          </div>
+
+          <header class="mobile">
+            <p>Performance de elite exige as melhores oportunidades. A Zero7 foi criada para traders que buscam a profissionalização; com o Plano Sênior, além de garantir um ecossistema completo, você terá limites robustos de 80 contratos para operar com alavancagem e segurança, elevando seu patamar operacional. Para quem possui espírito competitivo, o plano também assegura sua participação na Copa Zero7, um torneio exclusivo onde sua habilidade pode te levar ao topo do pódio. Mostre seu talento, vença os desafios e crave seu prêmio de R$10.000,00</p>
+          </header>
+        </div>
+      </div>
+    </section>
+
+    <section id="regulamento">
+      <div class="wrapper">
+
+        <div class="regulamento-doc" role="region" aria-label="Regulamento Copa Zero7" tabindex="0">
+          <article class="regulamento-content">
+            <h3 class="doc-title">Regulamento Copa Zero7</h3>
+
+            <p>Este regulamento estabelece as condições gerais e as regras para a "Copa Zero7" oferecida pela Zero7 Tesouraria LTDA, e devem ser aceitas na sua totalidade para que a participação do candidato seja aceita.</p>
+
+            <p>A presente campanha possui caráter exclusivamente competitivo entre os participantes elegíveis, consistindo em uma disputa individual na qual cada concorrente, valendo-se de seus próprios conhecimentos, técnicas e expertise, buscará alcançar o melhor desempenho possível dentro do período estipulado neste regulamento.</p>
+
+            <h4>1. Requisitos para participação</h4>
+            <p>Qualquer pessoa pode participar da avaliação e copa Zero7 desde que atenda os seguintes pré-requisitos:</p>
+            <ul>
+              <li>Pessoa física;</li>
+              <li>Maior de 18 (dezoito) anos</li>
+              <li>Adquirir o plano Sênior WIN/WDO de Avaliação durante os dias 15 de junho a 22 de junho de 2026, oferecido pela Zero7 como oferta especial e limitada que estará disponível no site <a href="https://zero7.com.br/copa-zero7/" target="_blank" rel="noopener">https://zero7.com.br/copa-zero7/</a></li>
+              <li>É permitida a compra de 3 planos por pessoa, sendo permitido a participação em três contas na copa Zero7. Para ranqueamento só será considerada a conta com o maior resultado financeiro.</li>
+              <li>É estritamente proibido operar em nome de outra pessoa.</li>
+              <li>Os ganhadores estarão cientes que deverão participar de uma CALL, a ser agendada com a equipe técnica da Zero7 para confirmação de identidade, bem como justificar de forma técnica os padrões utilizados nas operações vencedoras. É indispensável a participação nessa reunião e a mesma deverá ser gravada com autorização do participante. O não comparecimento, bem como respostas insatisfatórias aos questionamentos técnicos, tornará automaticamente o candidato/ganhador eliminado da competição.</li>
+              <li>Preencher as demais condições de participação deste regulamento.</li>
+            </ul>
+
+            <h4>2. Sobre a copa Zero7</h4>
+            <p>A copa Zero7 acontecerá dos dias 06 a 10 de julho de 2026, durante o período de funcionamento da B3 para operações no mercado futuro.</p>
+            <p>Ao contratar o plano de avaliação Sênior WIN/WDO que será comercializado entre os dias 15 de junho a 22 de junho de 2026, estará automaticamente habilitado para iniciar suas operações no dia 06 de julho de 2026 e automaticamente inscrito para participar da corrida Zero7.</p>
+            <p>A copa acontecerá em uma eliminatória, e os não classificados em cada etapa, estão automaticamente eliminados da copa.</p>
+            <p>A eliminatória e etapas será conforme descrito abaixo:</p>
+
+            <h5>Primeira etapa: 1º ao 3º dia (06/07/2026 à 08/07/2026)</h5>
+            <p>Classificam as 100 melhores performances financeiras acumuladas nos três primeiros dias de competição.</p>
+            <p>Durante toda a copa Zero7 deve-se respeitar o limite de perda diária de R$ 2.497,00, ficando o competidor bloqueado para operar no dia em que atingir esse valor.</p>
+            <p>As demais contas que não ficaram entre as 100 melhores performances, estarão automaticamente eliminadas da competição.</p>
+
+            <h5>Segunda etapa: 4º dia (09/07/2026)</h5>
+            <p>Todos iniciarão a segunda etapa com as contas zeradas.</p>
+            <p>Classificam as 10 melhores performances financeiras feitas somente na segunda etapa.</p>
+            <p>O limite de perda diária nesta etapa é de R$ 2.497,00.</p>
+            <p>As demais contas que não ficaram entre as 10 melhores performances, estarão automaticamente eliminadas da competição.</p>
+
+            <h5>Terceira e última etapa: 5º dia (10/07/2026):</h5>
+            <p>Os 10 melhores performances disputarão uma bateria de trading que acontecerá dás 9h às 12h, e o ranking de colocação será composto em ordem crescente, sendo a melhor performance financeira o primeiro lugar, e a pior o décimo lugar.</p>
+            <p>Todos iniciarão a terceira etapa com as contas zeradas.</p>
+            <p>O limite de perda diária nesta etapa é de R$ 2.497,00</p>
+            <p>A copa Zero7 irá premiar as 3 melhores performances financeiras realizadas entre os dias 06 a 10 de julho de 2026 e em conformidade com os parâmetros e regras do plano da copa.</p>
+            <p>A presente competição não envolve qualquer elemento de sorte ou aleatoriedade, sendo inteiramente baseada no mérito individual; todos os participantes elegíveis, ao optarem por participar, estarão em condições de plena igualdade, sem qualquer distinção ou favorecimento a indivíduos específicos, competindo exclusivamente com base em seus próprios conhecimentos, técnicas e expertise para alcançar os melhores resultados possíveis.</p>
+            <p>Em caso de empate ou não havendo número suficiente de classificados nas etapas ou ganhadores das três primeiras colocações na última etapa, aplicar-se-á como critério de desempate, classificar ou premiar os que acumularam melhor saldo na somatória das etapas anteriores.</p>
+
+            <h4>3. Da premiação e divulgação do resultado</h4>
+            <p>A competição será conduzida da forma mais transparente possível, com a divulgação dos resultados parciais e do resultado final sendo realizada exclusivamente por meio dos canais oficiais da Zero7, garantindo à disputa os princípios de transparência, seriedade e credibilidade.</p>
+            <p>Durante os dias da copa Zero7, será divulgado às 20h na Área do Trader oficial da Zero7 (<a href="https://app.zero7.com.br/" target="_blank" rel="noopener">https://app.zero7.com.br/</a>) os resultados parciais da corrida, onde poderá ser consultada a posição no ranking oficial.</p>
+            <p>E no dia 10 de julho de 2026, entre às 9h e 12h será transmitido ao vivo a final da copa Zero7 no canal de Youtube oficial da Zero7 (<a href="https://www.youtube.com/@Zero7Tesouraria" target="_blank" rel="noopener">https://www.youtube.com/@Zero7Tesouraria</a>), onde também será divulgado o resultado final.</p>
+
+            <h5>1º Lugar:</h5>
+            <ul>
+              <li>10 mil em dinheiro + plano 50k Zero7 internacional</li>
+            </ul>
+
+            <h5>2º Lugar:</h5>
+            <ul>
+              <li>5 mil em dinheiro + plano 25k Zero7 internacional</li>
+            </ul>
+
+            <h5>3º Lugar:</h5>
+            <ul>
+              <li>2,5 mil em dinheiro + plano 25k Zero7 internacional</li>
+            </ul>
+
+            <p>O envio da premiação será feito em até 48 horas úteis após a divulgação do resultado.</p>
+
+            <h4>4. INSCRIÇÃO E PAGAMENTO</h4>
+            <p>Após a confirmação do pagamento, que pode levar até 2 (dois) dias úteis, o candidato receberá um e-mail com as instruções necessárias para acessar sua área de trader e solicitar a sua participação da copa Zero7.</p>
+            <p>A plataforma para a copa Zero7 (conta simulação) que simulará as condições de mercado em tempo real, será enviada para o e-mail cadastrado no ato da compra, um dia antes da data de início da corrida.</p>
+
+            <h4>5. PROCESSO DA COMPETIÇÃO</h4>
+            <p>O candidato é responsável por estar apto a realizar operações na bolsa de valores brasileira Brasil, Bolsa, Balcão (B3). Conhecer os dias e horários de negociação na B3. Conhecer a plataforma oferecida no plano de avaliação para realizar suas operações na conta demonstração que simula as cotações da B3 em tempo real.</p>
+            <p>O candidato que atingir o limite de perda diária, conforme o plano estará naquele dia impedido de realizar mais operações.</p>
+            <p>Para fins de competição só serão considerados os resultados obtidos através das operações feitas com os ativos descritos no plano de avaliação adquirido, e abertas e encerradas no mesmo dia e nos horários estabelecidos, conhecidas como operações "day trade". É responsabilidade do trader encerrar todas suas operações às 17:30h (30 minutos antes do fim da negociação normal), definida pela B3, obrigatoriedade esta para call de fechamento da mesa de operações. Caso ainda existam posições abertas, a Área de Risco da ZERO7 terá o direito de encerrá-las automaticamente.</p>
+            <p>A plataforma simula os custos operacionais da mesma forma que na conta real. Sendo assim, o resultado contabilizado na competição será o resultado líquido das operações.</p>
+            <p>A participação do indivíduo na presente competição é totalmente opcional, ficando a seu exclusivo critério aderir ou não à campanha, sem qualquer obrigatoriedade. Ressaltamos que a não participação não acarretará em prejuízo algum ao plano contratado, que manterá sua validade e condições normalmente, sem qualquer interferência na conta de operação.</p>
+
+            <h4>6. PLANO DA COPA ZERO7</h4>
+            <p><strong>Copa Zero7 Win/Wdo</strong></p>
+            <p>Limite por operação: 80 contratos</p>
+            <p>Limite para WIN: 50 contratos</p>
+            <p>Limite para WDO: 30 contratos</p>
+            <p>Limite de perda diária: R$ 2.497,00</p>
+
+            <h4>7. DA PROTEÇÃO DE DADOS – LGPD</h4>
+            <p>A Lei Geral de Proteção de Dados (LGPD) dispõe ainda que quaisquer dados de terceiros e/ou informações pessoais que possam ser obtidas ou utilizadas por qualquer das partes em decorrência do presente instrumento, serão recolhidos, utilizados, armazenados e mantidos de acordo com os padrões geralmente aceitos para a coleta de dados, pela legislação aplicável, qual seja a Lei 13.709/2018.</p>
+
+            <h4>8. DO REGULAMENTO</h4>
+            <p>O presente regulamento tem o propósito exclusivo de informar e esclarecer algumas dúvidas acerca do funcionamento do projeto proposto pela Empresa Zero7. Ambas as partes reconhecem que este documento constitui simplesmente termos nos quais concordam em seguir para o bom funcionamento do projeto. Qualquer assunto não contemplado neste regulamento será discutido entre as partes, visando sempre a eficácia e a eficiência do projeto. As partes concordam em cooperar e agir de boa-fé para alcançar os objetivos estabelecidos, priorizando sempre o interesse mútuo e o sucesso do projeto.</p>
+
+            <h4>9. VALIDADE DO REGULAMENTO</h4>
+            <p>Este regulamento estará em vigor somente durante a Copa Zero7 oferecida de forma promocional pela ZERO7, de acordo com os critérios estabelecidos pela mesma.</p>
+
+            <h4>10. DIREITO DE IMAGEM E EXPLORAÇÃO PUBLICITÁRIA</h4>
+            <p>O operador, neste ato, autoriza a utilização de sua imagem, de forma gratuita, pela Zero7, para fins publicitários com ou sem fins lucrativos. Esta autorização abrange a reprodução, distribuição, exibição pública e qualquer outro meio de divulgação que a contratante julgue conveniente para promover seus produtos ou serviços.</p>
+
+            <h4>11. DO ACEITE ELETRÔNICO</h4>
+            <p>Ao aceitar eletronicamente o regulamento, o usuário reconhece e concorda expressamente que tal aceite tem o mesmo valor e efeito legal que sua assinatura manuscrita. Este aceite eletrônico é considerado válido e vinculativo para todas as partes envolvidas, estabelecendo um acordo formal e legal entre o usuário e [nome da entidade ou empresa responsável pelo regulamento. Qualquer discordância ou contestação sobre os termos do regulamento após o aceite eletrônico não afetará a validade deste acordo, salvo disposição em contrário expressamente acordada por ambas as partes.</p>
+            <p>Obs: As assinaturas eletrônicas são legalmente reconhecidas no Brasil desde 2001, com a edição da Medida Provisória nº 2.200-2/2001 ("MP 2.200-2/2001") – que,além de criar a Infra-Estrutura de Chaves Públicas Brasileira – ICP-Brasil, estabeleceu os critérios de validade das assinaturas eletrônicas no Brasil.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+     <footer id="footer">
+    <div class="wrapper">
+      <div class="content">
+        <div class="logo">
+          <img class="logo" src="./assets/logo zero7.svg" alt="">
+          <p>Av. Dep. Jamel Cecílio, nº 2929 - Jardim Goiás, Goiânia - GO, 74810-240</p>
+          <p>Segunda a sexta-feira, 8h às 18h</p>
+          <div id="ra-verified-seal">
+            <script type="text/javascript" id="ra-embed-verified-seal"
+              src="https://s3.amazonaws.com/raichu-beta/ra-verified/bundle.js"
+              data-id="WDRYanlCUWlyT0xFUTFZeDp6ZXJvNy10ZXNvdXJhcmlh" data-target="ra-verified-seal"
+              data-model="2"></script>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <h3>Navegação</h3>
+
+          <p><a href="#home">Home</a></p>
+          <p><a href="https://zero7.com.br/blog/">Blog</a></p>
+          <p><a href="#plan">Planos</a></p>
+          <p><a href="https://zero7.com.br/regulamento/">Regulamento</a></p>
+          <p><a target="_blank" href="https://app.zero7.com.br/login">Área do Trader</a></p>
+        </div>
+
+        <div class="contato">
+          <h3>Suporte</h3>
+          <p>suporte@zero7.com.br</p>
+        </div>
+
+        <div class="redes-sociais">
+          <h3>Social</h3>
+          <div class="icons">
+            <a target="_blank" href="https://www.instagram.com/zero7tesouraria/"><ion-icon
+                name="logo-instagram"></ion-icon></a>
+            <a target="_blank" href="https://www.tiktok.com/@zero7_mesa"><ion-icon name="logo-tiktok"></ion-icon></a>
+            <a target="_blank" href="https://www.facebook.com/zero7tesouraria"><ion-icon
+                name="logo-facebook"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <section id="pagamento">
+    <div class="wrapper">
+      <div class="content">
+        <p>Formas de Pagamento</p>
+        <img src="./assets/pagamento/1.webp" alt="">
+        <img src="./assets/pagamento/2.webp" alt="">
+        <img src="./assets/pagamento/3.webp" alt="">
+        <img src="./assets/pagamento/4.webp" alt="">
+        <img src="./assets/pagamento/5.webp" alt="">
+        <img src="./assets/pagamento/6.webp" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="author">
+    <div class="wrapper">
+      <div class="content">
+        <p>© 2025 | Todos os direitos reservados.</p>
+        <p><a href="https://zero7.com.br/politica-de-privacidade/">Política de Privacidade</a></p>
+        <p><a href="">Cookie</a></p>
+        <p><a href="">Políticas de Uso</a></p>
+        <p>Zero7 Tesouraria LTDA | CNPJ: 49.452.697/0001-20</p>
+      </div>
+
+      <p class="disclaimer">Todas as informações aqui apresentadas são destinadas exclusivamente a fins educacionais
+        sobre trading nos mercados financeiros. Elas não constituem recomendação de investimento, análise de
+        oportunidade ou orientação para negócios relacionados à negociação de instrumentos financeiros. A Zero7 oferece
+        apenas serviços de trading simulado e ferramentas educacionais para traders. As informações contidas neste site
+        não se destinam a residentes de países ou jurisdições onde tal distribuição ou uso contrarie as leis ou
+        regulamentos locais. A Zero7 não atua como corretora e não aceita depósitos. A solução técnica para plataformas
+        e a fonte de dados são fornecidas por terceiros.</p>
+    </div>
+  </section>
+
+     <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCJQPMC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const conhecaSwiper = new Swiper('.conheca-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    speed: 700,
+    grabCursor: true,
+    loop: false,
+    watchOverflow: true,
+    autoHeight: window.innerWidth < 1080, // mobile/tablet = true | desktop = false
+
+    pagination: {
+      el: '.conheca-pagination',
+      clickable: true
+    },
+
+    navigation: {
+      nextEl: '.conheca-next',
+      prevEl: '.conheca-prev'
+    },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      1080: {
+        slidesPerView: 1,
+        spaceBetween: 24
+      }
+    },
+
+    on: {
+      init(swiper) {
+        updateDesktopLeftHidden(swiper);
+        forceDesktopHeightFix(swiper);
+      },
+      slideChangeTransitionStart(swiper) {
+        updateDesktopLeftHidden(swiper);
+      },
+      slideChangeTransitionEnd(swiper) {
+        forceDesktopHeightFix(swiper);
+      },
+      resize(swiper) {
+        swiper.params.autoHeight = window.innerWidth < 1080;
+        updateDesktopLeftHidden(swiper);
+        forceDesktopHeightFix(swiper);
+        swiper.update();
+      },
+      imagesReady(swiper) {
+        forceDesktopHeightFix(swiper);
+        swiper.update();
+      }
+    }
+  });
+
+  function updateDesktopLeftHidden(swiper) {
+    const isDesktop = window.innerWidth >= 1080;
+
+    swiper.slides.forEach((slide, index) => {
+      slide.classList.remove('is-left-hidden');
+
+      if (!isDesktop) return;
+
+      if (index < swiper.activeIndex) {
+        slide.classList.add('is-left-hidden');
+      }
+    });
+  }
+
+  function forceDesktopHeightFix(swiper) {
+    const isDesktop = window.innerWidth >= 1080;
+    const wrapper = swiper.wrapperEl;
+    const activeSlide = swiper.slides[swiper.activeIndex];
+
+    if (!wrapper || !activeSlide) return;
+
+    if (isDesktop) {
+      // No desktop, deixa a altura natural (sem travar pelo autoHeight)
+      wrapper.style.height = '';
+      swiper.el.style.height = '';
+    } else {
+      // No mobile/tablet, mantém autoHeight certinho
+      swiper.updateAutoHeight(300);
+    }
+  }
+
+  // Caso imagens/fontes carreguem depois e alterem altura
+  window.addEventListener('load', () => {
+    if (conhecaSwiper) {
+      conhecaSwiper.update();
+      forceDesktopHeightFix(conhecaSwiper);
+    }
+  });
+</script>
+    
+    <script>
+      function getFacebookCookies() {
+        return {
+          fbp: getCookie('_fbp') || null,
+          fbc: getCookie('_fbc') || null
+        };
+      }
+    
+      function getCookie(name) {
+        let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+      }
+    
+      function sendFacebookEvent(eventName) {
+        const facebookData = getFacebookCookies();
+    
+        fetch("https://corrida-zero7-5a-vendas.vercel.app/send-event", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            event_name: eventName,
+            client_ip: "127.0.0.1", // opcional
+            client_user_agent: navigator.userAgent,
+            email: null,
+            phone: null,
+            fbc: facebookData.fbc,
+            fbp: facebookData.fbp
+          })
+        })
+        .then(res => res.json())
+        .then(data => console.log("API FB:", data))
+        .catch(err => console.error("Erro FB API:", err));
+      }
+    
+      // Envia evento ao carregar a página
+      window.onload = function () {
+        sendFacebookEvent("PageView");
+      };
+    </script>
+    
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=553722946901869&ev=PageView&noscript=1"
+    /></noscript>
+    
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+      // Initialize Lenis with options
+      const lenis = new Lenis({
+        smooth: true, // Ativa o scroll suave
+        duration: 1.1, // Define a duração do scroll (maior valor deixa mais lento)
+        easing: (t) => 1 - Math.pow(1 - t, 4), // Função de easing para suavidade
+      });
+
+      // Listen for the scroll event and log the event data
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+
+      // Use requestAnimationFrame to continuously update the scroll
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+    <script>
+  
+      document.querySelectorAll('a[href^="https://membros.zero7.com.br/fast-checkout/"]').forEach(link => {
+          link.classList.add('link4selet');
+      });
+      
+    document.querySelectorAll('a[href^="https://app.zero7.com.br/checkout/"]').forEach(link => {
+          link.classList.add('link4selet');
+      });
+  
+    document.querySelectorAll('a[href^="https://app.4st.com.br/checkout/"]').forEach(link => {
+          link.classList.add('link4selet');
+      });
+  
+    document.querySelectorAll('a[href^="https://app.4selet.com.br/checkout/"]').forEach(link => {
+          link.classList.add('link4selet');
+      });
+  
+  
+  
+      jQuery(document).ready(function($){
+        var sPageURL = window.location.search.substring(1), sURLVariables = sPageURL.split('&');
+        var parametrosGet = sURLVariables.join('&');
+      var linkAtribuido = '';
+          
+          if($(".link4selet").length) {
+            $.each($(".link4selet"), function (i, o) {
+          if($(this).prop("tagName") == 'DIV') {
+            var link = $(this).find("a").attr("href");
+            if(link.toLowerCase().indexOf("origem") >= 0) {
+              linkAtribuido = link + '&' + parametrosGet;
+            } else {
+              linkAtribuido = link + '?' + parametrosGet;
+            }
+            
+            $(this).find('a').attr("href", linkAtribuido);
+          } else if($(this).prop("tagName") == 'A') {
+            var link = $(this).attr("href");
+            if(link.toLowerCase().indexOf("origem") >= 0) {
+              linkAtribuido = link + '&' + parametrosGet;
+            } else {
+              linkAtribuido = link + '?' + parametrosGet;
+            }
+            $(this).attr("href", linkAtribuido);
+          }
+            });
+          }
+     });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="./script.js?v=6"></script>
+</body>
+</html>

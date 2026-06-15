@@ -1,0 +1,534 @@
+#como {
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+
+  --br-green: #009c3b;
+  --br-green-dark: #014421;
+  --br-green-deep: #001f12;
+  --br-yellow: #ffdf00;
+  --br-yellow-soft: #ffe86a;
+  --z7-wine: #240708;
+  --z7-black: #070202;
+
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 156, 59, .16), transparent 34rem),
+    radial-gradient(circle at 88% 28%, rgba(255, 223, 0, .20), transparent 36rem),
+    radial-gradient(circle at 50% 100%, rgba(0, 156, 59, .12), transparent 42rem),
+    linear-gradient(180deg, #eeeeea 0%, #e3e3df 100%);
+}
+
+#como::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(1, 68, 33, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1, 68, 33, .045) 1px, transparent 1px);
+  background-size: 4.8rem 4.8rem;
+  mask-image: radial-gradient(circle at center, #000 0%, transparent 72%);
+}
+
+#como::after {
+  content: "";
+  position: absolute;
+  width: 55rem;
+  height: 55rem;
+  right: -22rem;
+  top: 18rem;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle, rgba(255, 223, 0, .28), transparent 62%);
+  filter: blur(1rem);
+  opacity: .8;
+}
+
+/* Header mantido praticamente igual */
+#como header h2 {
+  font-size: 3.1rem;
+  line-height: 1;
+}
+
+#como h6 {
+  margin-top: 2rem;
+  align-self: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 1.6rem 0 1.6rem 0;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 45%),
+    linear-gradient(
+      120deg,
+      #014421 0%,
+      #008f3a 35%,
+      #014421 70%,
+      #008f3a 100%
+    );
+
+  color: #ffffff;
+  font-family: var(--ncs);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+
+  text-shadow: 0 0.1rem 0.2rem rgba(5, 60, 0, 0.55);
+
+  border: 0.1rem solid rgba(160, 255, 160, 0.38);
+
+  box-shadow:
+    0 0.6rem 1.6rem rgba(2, 56, 0, 0.42),
+    0 0 0 0.2rem rgba(0, 81, 0, 0.18),
+    inset 0 0.1rem 0 rgba(255, 255, 255, .35);
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#como h6::after {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  z-index: -1;
+
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 44%,
+    rgba(210, 230, 255, .58) 50%,
+    rgba(255, 255, 255, 0) 56%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  transform: translateX(-60%);
+  animation: eyebrowSheen 4.5s ease-in-out infinite;
+}
+
+@keyframes eyebrowSheen {
+  0%   { transform: translateX(-70%); opacity: .15; }
+  45%  { opacity: .55; }
+  60%  { opacity: .30; }
+  100% { transform: translateX(70%); opacity: .10; }
+}
+
+/* Cards */
+#como .cards {
+  width: 100%;
+  max-width: 132rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+#como .cards .card {
+  width: 100%;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem;
+
+  padding: .7rem;
+  border-radius: 2.4rem;
+
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, .12)),
+    linear-gradient(135deg, rgba(0, 156, 59, .35), rgba(255, 223, 0, .22), rgba(36, 7, 8, .26));
+
+  border: 1px solid rgba(255, 255, 255, .72);
+
+  box-shadow:
+    0 2.4rem 5rem rgba(0, 0, 0, .10),
+    inset 0 0 0 1px rgba(255, 255, 255, .22);
+}
+
+#como .cards .card::before {
+  content: "";
+  position: absolute;
+  inset: -.1rem;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 223, 0, .0) 0%,
+      rgba(255, 223, 0, .55) 38%,
+      rgba(0, 156, 59, .48) 55%,
+      rgba(255, 255, 255, .0) 100%
+    );
+
+  opacity: .35;
+  z-index: -1;
+  filter: blur(.6rem);
+}
+
+#como .cards .card .number,
+#como .cards .card .text {
+  min-height: 15rem;
+  border-radius: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bloco verde */
+#como .cards .card .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3rem 2rem;
+
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255, 223, 0, .36), transparent 32rem),
+    radial-gradient(circle at 80% 70%, rgba(255, 223, 0, .36), transparent 28rem),
+    linear-gradient(135deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, .02)),
+    url("../assets/bg\ copa\ desk.png");
+
+  background-size: cover;
+  background-position: center;
+
+  border: 1px solid rgba(255, 255, 255, .18);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .12),
+    inset 0 -4rem 7rem rgba(0, 0, 0, .25);
+}
+
+#como .cards .card .number::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.52), transparent 35%, rgba(0,0,0,.32)),
+    radial-gradient(circle at center, transparent 25%, rgba(0, 0, 0, .34) 100%);
+
+  pointer-events: none;
+}
+
+#como .cards .card .number::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(255, 255, 255, .18) 50%,
+      transparent 56%,
+      transparent 100%
+    );
+
+  transform: translateX(-60%);
+  animation: cardSheen 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cardSheen {
+  0%   { transform: translateX(-70%); opacity: 0; }
+  35%  { opacity: .65; }
+  65%  { opacity: .18; }
+  100% { transform: translateX(70%); opacity: 0; }
+}
+
+#como .cards .card .number h4 {
+  position: relative;
+  z-index: 1;
+
+  font-family: var(--ncs);
+  text-transform: uppercase;
+  text-align: center;
+
+  font-size: clamp(4.5rem, 13vw, 9rem);
+  line-height: .9;
+  letter-spacing: -.08em;
+
+  opacity: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .62) 0%,
+      rgba(255, 255, 255, .16) 100%
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 1.4rem 3rem rgba(0, 0, 0, 0.086);
+}
+
+/* Bloco de texto */
+#como .cards .card .text {
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 3rem;
+
+  background:
+      radial-gradient(circle at 92% 12%, rgba(255, 223, 0, .18), transparent 24rem),
+      radial-gradient(circle at 10% 100%, rgba(0, 156, 59, .26), transparent 28rem),
+      radial-gradient(circle at 100% 100%, rgba(0, 102, 179, .13), transparent 26rem),
+      linear-gradient(135deg, #062916 0%, #03140b 48%, #010704 100%);
+
+    padding: 4rem 4rem 4rem 4.8rem;
+    border-radius: 1rem;
+
+    border: 1px solid rgba(255, 255, 255, .11);
+
+    box-shadow:
+      0 1.2rem 3rem rgba(0, 0, 0, .14),
+      inset 0 0 0 1px rgba(255, 255, 255, .04),
+      inset 0 1px 0 rgba(255, 255, 255, .10);
+
+  border: 1px solid rgba(255, 255, 255, .14);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+#como .cards .card .text::before {
+  content: "";
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  right: -8rem;
+  top: -8rem;
+
+  background: radial-gradient(circle, rgba(255, 223, 0, .18), transparent 68%);
+  filter: blur(.4rem);
+  pointer-events: none;
+}
+
+#como .cards .card .text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2.6rem;
+  bottom: 2.6rem;
+  width: .4rem;
+  border-radius: 99rem;
+
+  background: linear-gradient(180deg, var(--br-yellow), var(--br-green));
+  box-shadow: 0 0 2rem rgba(255, 223, 0, .35);
+}
+
+#como .cards .card .text h5 {
+  position: relative;
+  z-index: 1;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,0)),
+    linear-gradient(135deg, #0066b3 0%, #0089e8 100%);
+
+  font-family: var(--ncs);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+
+  border-radius: 100rem;
+  margin-bottom: 2rem;
+  padding: .55rem 1.6rem;
+  width: max-content;
+
+  border: 1px solid rgba(255, 255, 255, .24);
+
+  box-shadow:
+    0 .8rem 1.8rem rgba(0, 102, 179, .25),
+    inset 0 1px 0 rgba(255,255,255,.32);
+}
+
+#como .cards .card .text h3 {
+  position: relative;
+  z-index: 1;
+
+  font-family: var(--goodtimes);
+  color: #ffffff;
+  font-size: clamp(2rem, 4.8vw, 2.5rem);
+  line-height: 1.35;
+  margin-bottom: .5rem;
+
+  text-shadow: 0 .4rem 1.5rem rgba(0,0,0,.38);
+}
+
+#como .cards .card .text p {
+  font-size: 1.6rem;
+  color: #bababa;
+  line-height: 1.3;
+}
+
+#como .cards .card .text p.um {
+  margin-bottom: 1rem;
+}
+
+#como .cards .card .text p span {
+  font-weight: 600;
+  color: #e8e8e8;
+}
+
+/* Desktop */
+@media (min-width: 1080px) {
+  section#como header h2 {
+    font-size: 5rem;
+  }
+
+  section#como header p {
+    font-size: 1.8rem;
+    width: 70%;
+  }
+
+  section#como header h6 {
+    font-size: 2rem;
+  }
+
+  section#como header {
+    margin-bottom: 8rem;
+  }
+
+  section#como .cards {
+    gap: .5rem;
+  }
+
+  section#como .cards .card {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    min-height: 20rem;
+  }
+
+  section#como .cards .card:nth-child(2) .number {
+    order: 1;
+  }
+
+  section#como .cards .card:nth-child(2) .text {
+    order: 1;
+  }
+
+  section#como .cards .card:nth-child(1),
+  section#como .cards .card:nth-child(3) {
+    transform: translateX(0);
+  }
+
+  section#como .cards .card:nth-child(2) {
+    transform: translateX(0);
+  }
+
+  section#como .cards .card .number,
+  section#como .cards .card .text {
+    min-height: 20rem;
+    border-radius: 2rem;
+  }
+
+  section#como .cards .card .number {
+    justify-content: center;
+    padding-inline: 5rem;
+  }
+
+  section#como .cards .card:nth-child(1) .number,
+  section#como .cards .card:nth-child(3) .number {
+    justify-content: center;
+  }
+
+  section#como .cards .card:nth-child(2) .number {
+    justify-content: center;
+  }
+
+  section#como .cards .card .number h4 {
+    font-size: clamp(6rem, 7vw, 10rem);
+    margin-bottom: -1rem;
+    line-height: 1;
+  }
+
+  section#como .cards .card .text {
+    padding: 4rem;
+  }
+
+  section#como .cards .card .text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  section#como .cards .card .text p {
+    font-size: 1.5rem;
+  }
+
+  section#como img.arrow {
+    display: inherit;
+    position: absolute;
+    width: 5%;
+    mask-image: linear-gradient(to bottom, transparent, #000);
+  }
+
+  section#como img.arrow.left {
+    top: -9%;
+    left: -5%;
+  }
+
+  section#como img.arrow.right {
+    top: -9%;
+    right: -5%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  #como {
+    background:
+      radial-gradient(circle at 20% 8%, rgba(255, 223, 0, .18), transparent 26rem),
+      radial-gradient(circle at 90% 35%, rgba(0, 156, 59, .18), transparent 28rem),
+      linear-gradient(180deg, #eeeeea 0%, #e3e3df 100%);
+  }
+
+  #como .cards {
+    gap: 1.8rem;
+  }
+
+  #como .cards .card {
+    padding: .55rem;
+    border-radius: 2rem;
+  }
+
+  #como .cards .card .number,
+  #como .cards .card .text {
+    border-radius: 1.55rem;
+  }
+
+  #como .cards .card .number {
+    
+  }
+
+  #como .cards .card .text {
+    min-height: auto;
+    padding: 3rem;
+  }
+
+  #como .cards .card .text h5 {
+    font-size: .95rem;
+    margin-bottom: 1.4rem;
+  }
+
+  #como .cards .card .text h3 {
+    font-size: 1.8rem;
+  }
+}
+
+#como a {
+    margin-top: 5rem;
+}
