@@ -191,7 +191,7 @@
     radial-gradient(circle at 25% 20%, rgba(255, 223, 0, .36), transparent 32rem),
     radial-gradient(circle at 80% 70%, rgba(255, 223, 0, .36), transparent 28rem),
     linear-gradient(135deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, .02)),
-    url("../assets/bg\ copa\ desk.png");
+    url("../assets/bg\ copa\ desk.avif");
 
   background-size: cover;
   background-position: center;

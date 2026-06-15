@@ -24,7 +24,7 @@
     overflow: hidden;
     position: relative;
 
-    background-image: url(../assets/bg\ verde\ copa\ mobile.png);
+    background-image: url(../assets/bg\ verde\ copa\ mobile.avif);
 }
 
 #plano::before {
@@ -812,7 +812,7 @@
 @media (min-width: 1080px) {
   section#plano {
     padding-block: 12rem;
-    background-image: url(../assets/bg\ verde\ copa\ desktop.png);
+    background-image: url(../assets/bg\ verde\ copa\ desktop.avif);
     background-size: cover;
 
     margin-inline: 3%;
