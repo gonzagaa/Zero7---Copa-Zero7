@@ -33,17 +33,17 @@
 </head>
 <body id="body" class="smooth-scroll-wrapper">
   
-<!-- <div id="top-offer-timer" class="top-offer-timer">
+<div id="top-offer-timer" class="top-offer-timer">
   <div class="top-offer-timer__inner">
     <p class="top-offer-timer__text">
-      <strong>Essa oferta se encerra em:</strong>
+      Essa oferta se encerra em:
     </p>
 
     <div class="top-offer-timer__countdown" id="countdown">
-      <span class="time-group"><span id="days">10</span>d</span>
-      <span class="time-group"><span id="hours">08</span>h</span>
-      <span class="time-group"><span id="minutes">20</span>m</span>
-      <span class="time-group"><span id="seconds">30</span>s</span>
+      <span id="days">00</span><span class="unit">d</span>
+      <span id="hours">00</span><span class="unit">h</span>
+      <span id="minutes">00</span><span class="unit">m</span>
+      <span id="seconds">00</span><span class="unit">s</span>
     </div>
   </div>
 </div>
@@ -56,10 +56,7 @@
     width: 100%;
     z-index: 9999;
 
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
+    background: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   }
@@ -67,11 +64,11 @@
   .top-offer-timer__inner {
     width: min(1200px, 92%);
     margin: 0 auto;
-    min-height: 4.8rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
 
     padding: .9rem 0;
@@ -83,76 +80,83 @@
     color: #0b1623;
     font-size: 1.5rem;
     line-height: 1.2;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .top-offer-timer__text strong {
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .top-offer-timer__countdown {
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    font-size: 1.7rem;
-    font-weight: 800;
-    line-height: 1;
-    color: #023c83;
-
-    background: linear-gradient(to right, #023c83, #0080c9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .top-offer-timer__countdown .time-group {
     display: inline-flex;
     align-items: center;
-    gap: 0;
+    gap: .35rem;
+
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #ffffff;
+
+    background: #d3151c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .top-offer-timer__countdown .unit {
+    font-weight: 400;
+    margin-right: .15rem;
+    opacity: .9;
+  }
+
+  .top-offer-timer__countdown .unit:last-child {
+    margin-right: 0;
   }
 
   body {
-    padding-top: 6.2rem;
+    padding-top: 5.2rem;
   }
 
   @media (max-width: 768px) {
     .top-offer-timer__inner {
-      min-height: auto;
-      flex-direction: column;
-      gap: .5rem;
-      padding: .8rem 0;
+      gap: .6rem;
+      padding: .7rem 0;
     }
 
     .top-offer-timer__text {
-      font-size: 1.3rem;
-      white-space: normal;
+      font-size: 1.25rem;
     }
 
     .top-offer-timer__countdown {
-      font-size: 1.5rem;
-      gap: .7rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      font-size: 1.25rem;
+      padding: .5rem .85rem;
     }
 
     body {
-      padding-top: 7.8rem;
+      padding-top: 4.6rem;
     }
   }
 
   @media (max-width: 480px) {
+    .top-offer-timer__inner {
+      flex-direction: column;
+      gap: .45rem;
+    }
+
+    .top-offer-timer__text {
+      font-size: 1.15rem;
+    }
+
     .top-offer-timer__countdown {
-      font-size: 1.35rem;
-      gap: .6rem;
+      font-size: 1.2rem;
+    }
+
+    body {
+      padding-top: 6.4rem;
     }
   }
 </style>
 
 <script>
   (() => {
-    const offerYear = 2026;
-    const offerMonth = 3; // Abril = 3 (Janeiro = 0)
+    // Encerra em 22 de junho de 2026, 23:59:59 (horário de Brasília, UTC-3)
+    const offerEnd = new Date("2026-06-22T23:59:59-03:00").getTime();
 
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
@@ -164,13 +168,9 @@
     }
 
     function updateCountdown() {
-      const now = new Date();
+      const distance = offerEnd - Date.now();
 
-      const isOfferMonth =
-        now.getFullYear() === offerYear &&
-        now.getMonth() === offerMonth;
-
-      if (!isOfferMonth) {
+      if (distance <= 0) {
         daysEl.textContent = "00";
         hoursEl.textContent = "00";
         minutesEl.textContent = "00";
@@ -178,20 +178,12 @@
         return;
       }
 
-      const endOfToday = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        23, 59, 59, 999
-      ).getTime();
-
-      const distance = endOfToday - now.getTime();
-
-      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      daysEl.textContent = "00";
+      daysEl.textContent = format(days);
       hoursEl.textContent = format(hours);
       minutesEl.textContent = format(minutes);
       secondsEl.textContent = format(seconds);
@@ -200,7 +192,7 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   })();
-</script> -->
+</script>
 
     <header class="header black" id="home"> 
       <div class="wrapper">
